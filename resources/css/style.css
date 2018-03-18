@@ -1,0 +1,84 @@
+/*
+logo colors:
+    logo:#227562
+    background:#0d352c
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  body{
+    
+    font-family: "Open Sans";
+    color:#37917d;
+    min-width: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  header{
+    background-color:#e5e5e5;
+    padding:15px;
+    text-align:center;
+  }
+  footer{
+    background-color:#e5e5e5;
+    text-align:center;
+    padding:10px;
+    margin-top:7px;
+}
+  #section01{
+    overflow:auto;
+ 
+  }
+  .menu {
+    float:left;
+    width:20%;
+    text-align:center;
+  }
+  .menu a {
+    background-color:#e5e5e5;
+    text-decoration: none;
+    padding:8px;
+    margin-top:7px;
+    display:block;
+    width:100%;
+    color:black;
+    font-weight: 400;
+    text-shadow: none;
+    /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+  }
+  .menu a:hover {
+    color:#e5e5e5; 
+    background:#37917d;
+  }
+  
+  .main {
+    float:left;
+    width:60%;
+    padding:0 20px;
+    font-weight: 500;
+  }
+  .right {
+    background-color:#e5e5e5;
+    float:left;
+    width:20%;
+    padding:15px;
+    margin-top:7px;
+    text-align:center;
+  }
+   
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+      width:100%;
+    }
+  } 
