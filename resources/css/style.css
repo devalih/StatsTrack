@@ -50,11 +50,10 @@ html, body, section, .page {
 	padding-left: 20px;
 }
 
-
 ul {
  background-color: #273e43ab;
 	border-right: 1px solid #3d8f9dbf;
-  
+
   list-style-type: none;
   position: fixed;
   top: 0;
