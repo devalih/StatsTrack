@@ -1,4 +1,6 @@
-# StatsTrack sounds like star trek An app to track your statistic on a diff climbing competitions
+# StatsTrack 
+sounds like star trek 
+
 
 <hr>
 
