@@ -28,7 +28,7 @@ sounds like star trek
                 <ol>
                     <li>ID(his/her participant number)</li>
                     <li>Full name</li>
-                    <li>Result</li>
+                    <li>Result(time/points)</li>
                 </ol>
             </li>
         </ol>
