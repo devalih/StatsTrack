@@ -1,26 +1,92 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- for database auth !!!
+         <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" /> -->
+</head>
 
+<body>
+    <div class="ct" id="t1">
+        <div class="ct" id="t2">
+            <div class="ct" id="t3">
+                <div class="ct" id="t4">
+                    <section>
+                        <ul>
+                            <a href="#t1">
+                                <li class="icon_home" id="first">
+                                    <img class="img_class" src="/resources/img/menu/about_mountain.svg"></img>
+                                </li>
+                            </a>
+                            <hr>
+                            <a href="#t2">
+                                <li class="icon_competition" id="second">
+                                    <img class="img_class" src="/resources/img/menu/ranking.svg"></img>
+                                </li>
+                            </a>
+                            <hr>
+                            <a href="#t3">
+                                <li class="icon_last_results" id="third">
+                                    <img class="img_class" src="/resources/img/menu/trophy.svg"></img>
+                                </li>
+                            </a>
+                            <hr>
+                            <a href="#t4">
+                                <li class="icon_about" id="fourth">
+                                    <img class="img_class" src="/resources/img/menu/settings.svg"></img>
+                                </li>                        
+                            </a>
+                            <hr>
+                        </ul>
+                        <div class="page" id="p1">
+                            <div class="main">
+                                <h2>Стивен Хокинг</h2>
+                                <p>Пространство и время не только влияют на всё, 
+                                    что происходит во Вселенной, но и сами изменяются 
+                                    под влиянием всего в ней происходящего.</p>
+                                    <br>
+                                    <h2>Login as Participant or as Organisator</h2>
+                            </div>
+                          
+                        </div>
+                        <div class="page" id="p2">
+                            <p>You competition's results live</p>
+                        
+                        </div>
+                        <div class="page" id="p3">
+                            Last Competitions page
+                        </div>
+                        <div class="page" id="p4">
+                            <p>Page for organisators to make the template for competition</p>
+                        </div>
 
-  <section id="section01">
-    <nav class="menu">
-        <a href="#t1">Home</a>
-        <a href="#t2">Check Your Result Live!</a>
-        <a href="#t3">Last Competitions?</a>
-        <a href="#t4">About</a>
-    </nav>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <script src="/resources/js/db_update.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAmg3qvDlorL-rCjMBbIKUO128xEdy1pCs",
+            authDomain: "statstrack-kolkol.firebaseapp.com",
+            databaseURL: "https://statstrack-kolkol.firebaseio.com",
+            projectId: "statstrack-kolkol",
+            storageBucket: "statstrack-kolkol.appspot.com",
+            messagingSenderId: "1039433851013"
+        };
+        firebase.initializeApp(config);
+    </script>
+</body>
 
-    <div class="main">
-        <h2>Lorum Ipsum</h2>
-        <p>Lorem ipsum dolor sLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-            ut laoreet lore magna aliquam erat volutpatit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-            tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        <button id="submit_button" type="submit">Click Me</button>
-    </div>
-
-    <div class="right">
-        <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-    </div>
-    </div>
-</section>
-<footer>done by maks</footer>
+</html>

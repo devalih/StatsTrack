@@ -292,3 +292,37 @@ footer{
   }
   
 }
+
+/* ON MOUSEOVER SHOW TEXT OF THE ICON */
+/* .img_wraper .img_text {
+  position:relative;
+  bottom:30px;
+  left:0px;
+  background-color: #273e4300;
+  border: none;
+  color: #3d8f9d00;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: auto;
+  cursor: pointer;
+
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+
+  
+  visibility:hidden;
+}
+  
+.img_wraper:hover .img_text {
+  left: 90px;
+  font-weight: bold;
+  border-radius: 15%;
+  color: #3d8f9dbf;
+  background-color: #273e43f3;  
+  visibility:visible; 
+} */
