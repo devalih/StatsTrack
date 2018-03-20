@@ -8,8 +8,8 @@ sounds like star trek
     <li>
         Login Page
         <ol>
-            <li>Login as participant</li>
-            <li>Login/Register as orgasisator</li>
+            <li>Login as participant(Enter full name and competitionID)</li>
+            <li>Login/Register as orgasisator(You can edit competition, add new results, etc.)</li>
         </ol>
     </li>
     <li>
@@ -22,13 +22,13 @@ sounds like star trek
     <li>
         Panel for organizators to mage competition
         <ol>
-            <li>Choose the number of the climbing wall</li>
+            <li>Choose the number(type?) of the climbing wall</li>
             <li>
               button to add participant's result
                 <ol>
                     <li>ID(his/her participant number)</li>
                     <li>Full name</li>
-                    <li>Result(time/points)</li>
+                    <li>Result(time/points?)</li>
                 </ol>
             </li>
         </ol>
