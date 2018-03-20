@@ -9,7 +9,7 @@ sounds like star trek
         Login Page
         <ol>
             <li>Login as participant(Enter full name and competitionID)</li>
-            <li>Login/Register as orgasisator(You can edit competition, add new results, etc.)</li>
+            <li>Login/Register as organizator(You can edit competition, add new results, etc.)</li>
         </ol>
     </li>
     <li>
@@ -22,7 +22,11 @@ sounds like star trek
     <li>
         Panel for organizators to mage competition
         <ol>
-            <li>Choose the number(type?) of the climbing wall</li>
+            <li>
+                Choose the number(type?) of the climbing wall from a drop-down menu,
+                each wall has it's points.(If some partipant made it, he gains poits according to
+                the wall's points.
+            </li>
             <li>
               button to add participant's result
                 <ol>
