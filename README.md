@@ -17,7 +17,7 @@ sounds like star trek
         </ol>
     </li>
     <li>
-        Your competition result page
+        [FUTURE] Add some live chat ? khmm
         <ol>
             <li>
                 Show the result table(ranking) of the competition #{competitionID} according to the gained points
@@ -52,4 +52,5 @@ sounds like star trek
     </li>
 </ol>
 
-<hr> Final project for WebDev Academy at Motorola Solutions
+<hr> 
+Final project for WebDev Academy at Motorola Solutions
