@@ -140,7 +140,6 @@ hr{
   color: #3d8f9dbf;
 }
 
-
 ul li {
   margin: 30px 0;
 }
@@ -215,7 +214,7 @@ img.avatar {
 .container {
   padding: 15px;
 }
-/*FORGOT PASSWORD */
+/*FORGOT PASSWORD BUTTON*/
 span.psw {
   float: right;
   padding-top: 16px;
