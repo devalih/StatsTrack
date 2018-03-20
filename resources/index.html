@@ -9,8 +9,8 @@
     liczba punktów. Również lista zawodników powinna być zamknięta, pobierana z serwera 
 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/settings.css">
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
@@ -31,7 +31,7 @@
                             <a href="#t1">
                                 <li class="icon_home" id="first">
                                     <div class="img_wraper">
-                                        <img class="img_class" src="/resources/img/menu/about_mountain.svg">
+                                        <img class="img_class" src="/img/menu/about_mountain.svg">
                                         <p class="img_text">Main</p>
                                     </div>
                                 </li>
@@ -40,7 +40,7 @@
                             <a href="#t2">
                                 <li class="icon_competition" id="second">
                                     <div class="img_wraper">
-                                        <img class="img_class" src="/resources/img/menu/ranking.svg">
+                                        <img class="img_class" src="/img/menu/ranking.svg">
                                         <p class="img_text">Ranking</p>
                                     </div>
 
@@ -50,7 +50,7 @@
                             <a href="#t3">
                                 <li class="icon_last_results" id="third">
                                     <div class="img_wraper">
-                                        <img class="img_class" src="/resources/img/menu/trophy.svg">
+                                        <img class="img_class" src="/img/menu/trophy.svg">
                                         <p class="img_text">Statistics</p>
                                     </div>
                                 </li>
@@ -59,7 +59,7 @@
                             <a href="#t4">
                                 <li class="icon_about" id="fourth">
                                     <div class="img_wraper">
-                                        <img class="img_class" src="/resources/img/menu/settings.svg">
+                                        <img class="img_class" src="/img/menu/settings.svg">
                                         <p class="img_text">Settings</p>
                                     </div>
                                 </li>
@@ -75,7 +75,7 @@
                                     <form class="modal-content animate">
                                         <div class="imgcontainer">
                                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                            <img src="/resources/img/logo_round.png" alt="Avatar" class="avatar">
+                                            <img src="/img/logo_round.png" alt="Avatar" class="avatar">
                                         </div>
 
                                         <div class="container">
@@ -107,14 +107,20 @@
 
                         </div>
                         <div class="page" id="p2">
-                            <p><h2>Your competition's results live</h2></p>
+                            <p>
+                                <h2>Your competition's results live</h2>
+                            </p>
 
                         </div>
                         <div class="page" id="p3">
-                            <p><h2>Last competition results [FUTURE]</h2></p>
+                            <p>
+                                <h2>Last competition results [FUTURE]</h2>
+                            </p>
                         </div>
                         <div class="page" id="p4">
-                            <p><h2>Page for organisators to make the template for competition</h2></p>
+                            <p>
+                                <h2>Page for organisators to make the template for competition</h2>
+                            </p>
                             <div class="custom-select" id="select-walls">
                                 <select>
                                     <option value="0">Select climbing wall:</option>
@@ -131,43 +137,43 @@
                                 </select>
                             </div>
                             <div class="custom-select" id="select-points">
-                                    <select>
-                                        <option value="0">Points:</option>
-                                        <option value="1">1 point</option>
-                                        <option value="2">2 points</option>
-                                        <option value="3">3 points</option>
-                                        <option value="4">4 points</option>
-                                        <option value="5">5 points</option>
-                                        <option value="6">6 points</option>
-                                        <option value="7">7 points</option>
-                                        <option value="8">8 points</option>
-                                        <option value="9">9 points</option>
-                                        <option value="10">10 points</option>
-                                    </select>
-                                </div>
-                                <div class="custom-select" id="select-participant">
-                                        <select>
-                                            <option value="0">Points:</option>
-                                            <option value="1">1 point</option>
-                                            <option value="2">2 points</option>
-                                            <option value="3">3 points</option>
-                                            <option value="4">4 points</option>
-                                            <option value="5">5 points</option>
-                                            <option value="6">6 points</option>
-                                            <option value="7">7 points</option>
-                                            <option value="8">8 points</option>
-                                            <option value="9">9 points</option>
-                                            <option value="10">10 points</option>
-                                        </select>
-                                    </div>
+                                <select>
+                                    <option value="0">Points:</option>
+                                    <option value="1">1 point</option>
+                                    <option value="2">2 points</option>
+                                    <option value="3">3 points</option>
+                                    <option value="4">4 points</option>
+                                    <option value="5">5 points</option>
+                                    <option value="6">6 points</option>
+                                    <option value="7">7 points</option>
+                                    <option value="8">8 points</option>
+                                    <option value="9">9 points</option>
+                                    <option value="10">10 points</option>
+                                </select>
+                            </div>
+                            <div class="custom-select">
+                                <select id="select-participant">
+                                    <option value="0">Points:</option>
+                                    <option value="1">1 point</option>
+                                    <option value="2">2 points</option>
+                                    <option value="3">3 points</option>
+                                    <option value="4">4 points</option>
+                                    <option value="5">5 points</option>
+                                    <option value="6">6 points</option>
+                                    <option value="7">7 points</option>
+                                    <option value="8">8 points</option>
+                                    <option value="9">9 points</option>
+                                    <option value="10">10 points</option>
+                                </select>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/resources/js/db_update.js"></script>
-    <script src="/resources/js/settings-select-menu.js"></script>
+    <script src="/js/db_update.js"></script>
+    <script src="/js/settings-select-menu.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
         // Initialize Firebase
