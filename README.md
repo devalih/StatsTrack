@@ -17,7 +17,7 @@ sounds like star trek
         </ol>
     </li>
     <li>
-        [FUTURE] Add some live chat ? khmm
+        Your competition's results live
         <ol>
             <li>
                 Show the result table(ranking) of the competition #{competitionID} according to the gained points
@@ -28,7 +28,7 @@ sounds like star trek
             </li>
         </ol>
     </li>
-    <li>[FUTURE]My finished competitions</li>
+    <li>[FUTURE] Add some live chat ? khmm
     <li>
         Panel for organizators to mage competition
         <ol>
