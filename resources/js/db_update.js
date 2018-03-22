@@ -1,3 +1,4 @@
+console.log("html-script-db_update");
 let participantList = [];
 // Initialize Firebase
 var config = {
@@ -20,6 +21,7 @@ function writeUserData(firstname, lastname, participantID, participantResult) {
 }
 
 function readUserData() {
+    console.log("html-script-db_update-readUserData");
     let arr = []
     const participants = firebase.database().ref('participants');
     participants.on('value', function (snapshot) {
@@ -31,12 +33,28 @@ function readUserData() {
     // return await participantList;
 }
 
+// function updateParticipantList(){
+//     readUserData();
+
+//     // setTimeout(() => {
+//         let i = 0;
+//         const selPartElem = document.getElementById("select-participant");
+//         console.log("participantList: ", participantList);
+
+//         participantList.forEach((elem) => {
+//             console.log('elem:', elem);
+//             $('#select-participant').append(`<option value="${i}">Name: ${elem.firstname} ${elem.lastname}</option>`);
+//             i++;
+//         });
+// }
 document.addEventListener('DOMContentLoaded', () => {
     var database = firebase.database();
 
     readUserData();
 
     setTimeout(() => {
+        console.log("html-script-db_update-doc_listener-trying to add option to select");
+
         let i = 0;
         const selPartElem = document.getElementById("select-participant");
         console.log("participantList: ", participantList);
@@ -46,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#select-participant').append(`<option value="${i}">Name: ${elem.firstname} ${elem.lastname}</option>`);
             i++;
         });
-    }, 1000);
+    }, 3000);
     // console.log("data sent to DB! YOLO");
     // writeUserData('maksik wow', 'kolo', '15', '03:00:18');
 

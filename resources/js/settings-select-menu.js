@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+  console.log("html-script-getScript-settings-select-menu");  
   var x, i, j, selElmnt, a, b, c;
   /*look for any elements with the class "custom-select":*/
   x = document.getElementsByClassName("custom-select");
@@ -66,4 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
   /*if the user clicks anywhere outside the select box,
   then close all select boxes:*/
   document.addEventListener("click", closeAllSelect);
-});
+// });

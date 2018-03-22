@@ -15,8 +15,14 @@
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>    
-     
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="/js/db_update.js">console.log(`going there=> "/js/db_update.js"`);</script>
+    <script> 
+        //This is a shorthand Ajax function
+        console.log(`going there=> "/js/settings-select-menu.js"`);
+        var url = '/js/settings-select-menu.js';
+        $.getScript(url);
+    </script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <!-- for database auth !!!
          <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
@@ -166,16 +172,9 @@
             </div>
         </div>
     </div>
-    <script> 
-        //  if you return HTML content like that via xhr, 
-        //  you will cause jQuery to make a call to get that script. 
-        //  That call happens with an async flag false since it assumes
-        //   you need the script to continue loading.
-            const url = '/js/settings-select-menu.js';
-            $.getScript(url);
-    </script>    
-    <script src="/js/db_update.js"></script>    
-    
+
+
+
 </body>
 
 </html>
