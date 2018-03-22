@@ -1,6 +1,17 @@
 // document.addEventListener('DOMContentLoaded', () => {
-  console.log("html-script-getScript-settings-select-menu");  
-  var x, i, j, selElmnt, a, b, c;
+console.log("html-script-getScript-settings-select-menu");
+var x, i, j, selElmnt, a, b, c;
+
+setTimeout(() => {
+
+  participantList.forEach((elem) => {
+    console.log('elem:', elem);
+    $('#select-participant').append(`<option>Name: ${elem.firstname} ${elem.lastname}</option>`);
+    i++;
+  });
+});
+setTimeout(() => {
+
   /*look for any elements with the class "custom-select":*/
   x = document.getElementsByClassName("custom-select");
   for (i = 0; i < x.length; i++) {
@@ -67,4 +78,4 @@
   /*if the user clicks anywhere outside the select box,
   then close all select boxes:*/
   document.addEventListener("click", closeAllSelect);
-// });
+}, 1000);

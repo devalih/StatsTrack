@@ -51,20 +51,37 @@ document.addEventListener('DOMContentLoaded', () => {
     var database = firebase.database();
 
     readUserData();
+    const selPartElem = document.getElementById("select-participant");
+    /**
+     * 
+     * 
+     * 
+     * добавляє все окей, але не добавляє ти дів елеметнів які воно пізніше виписує і показує, треба
+     * додати, можливо вручну це все, що воно почало показувати, бо грузить воно його нормально 
+     * кароче це моє наступне завдання
+     * якщо шось можна то чекнути в html  щоб побачити де воно показує і що воно має показувати 
+     * 
+     * 
+     * 
+     */
 
-    setTimeout(() => {
-        console.log("html-script-db_update-doc_listener-trying to add option to select");
 
-        let i = 0;
-        const selPartElem = document.getElementById("select-participant");
-        console.log("participantList: ", participantList);
 
-        participantList.forEach((elem) => {
-            console.log('elem:', elem);
-            $('#select-participant').append(`<option value="${i}">Name: ${elem.firstname} ${elem.lastname}</option>`);
-            i++;
-        });
-    }, 3000);
+
+    // setTimeout(() => {
+    //     console.log("html-script-db_update-doc_listener-trying to add option to select");
+
+    //     // let i = 0;
+
+    //     console.log("selPartElem: ", selPartElem);
+    //     console.log("participantList: ", participantList);
+
+    //     participantList.forEach((elem) => {
+    //         console.log('elem:', elem);
+    //         $('#select-participant').append(`<option>Name: ${elem.firstname} ${elem.lastname}</option>`);
+    //         i++;
+    //     });
+    // }, 2000);
     // console.log("data sent to DB! YOLO");
     // writeUserData('maksik wow', 'kolo', '15', '03:00:18');
 
