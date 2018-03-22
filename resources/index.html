@@ -11,10 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>    
+     
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <!-- for database auth !!!
          <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
@@ -154,39 +156,26 @@
                             <div class="custom-select">
                                 <select id="select-participant">
                                     <option value="0">Points:</option>
-                                    <option value="1">1 point</option>
-                                    <option value="2">2 points</option>
-                                    <option value="3">3 points</option>
-                                    <option value="4">4 points</option>
-                                    <option value="5">5 points</option>
-                                    <option value="6">6 points</option>
-                                    <option value="7">7 points</option>
-                                    <option value="8">8 points</option>
-                                    <option value="9">9 points</option>
-                                    <option value="10">10 points</option>
+                                    <!-- db_uodate.js is filling this part -->
                                 </select>
                             </div>
+                            <button id="submit_button" style="width : 20%; margin-left: 10px;" type="submit">Add participant</button>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/db_update.js"></script>
-    <script src="/js/settings-select-menu.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyAmg3qvDlorL-rCjMBbIKUO128xEdy1pCs",
-            authDomain: "statstrack-kolkol.firebaseapp.com",
-            databaseURL: "https://statstrack-kolkol.firebaseio.com",
-            projectId: "statstrack-kolkol",
-            storageBucket: "statstrack-kolkol.appspot.com",
-            messagingSenderId: "1039433851013"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script> 
+        //  if you return HTML content like that via xhr, 
+        //  you will cause jQuery to make a call to get that script. 
+        //  That call happens with an async flag false since it assumes
+        //   you need the script to continue loading.
+            const url = '/js/settings-select-menu.js';
+            $.getScript(url);
+    </script>    
+    <script src="/js/db_update.js"></script>    
+    
 </body>
 
 </html>

@@ -181,8 +181,8 @@ input[type=text], input[type=password] {
 button {
   background-color: #3d8f9dbf;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 12px 20px;
+  /* margin: 8px 0; */
   border: none;
   cursor: pointer;
   width: 100%;

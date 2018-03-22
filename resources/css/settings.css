@@ -6,6 +6,7 @@
   }
   
   .custom-select select {
+    transition: all 0.5s linear;
     display: none; /*hide original SELECT element:*/
   }
   .select-selected {
@@ -37,7 +38,7 @@
     user-select: none;
   }
   /*style items (options):*/
-  .select-items {
+  .select-items {  
     position: absolute;
     background-color: rgba(98, 170, 155, 0.864);
     top: 100%;

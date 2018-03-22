@@ -1,4 +1,14 @@
 let participantList = [];
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAmg3qvDlorL-rCjMBbIKUO128xEdy1pCs",
+    authDomain: "statstrack-kolkol.firebaseapp.com",
+    databaseURL: "https://statstrack-kolkol.firebaseio.com",
+    projectId: "statstrack-kolkol",
+    storageBucket: "statstrack-kolkol.appspot.com",
+    messagingSenderId: "1039433851013"
+};
+firebase.initializeApp(config);
 
 function writeUserData(firstname, lastname, participantID, participantResult) {
     firebase.database().ref('participants/' + participantID).set({
@@ -10,36 +20,40 @@ function writeUserData(firstname, lastname, participantID, participantResult) {
 }
 
 function readUserData() {
+    let arr = []
     const participants = firebase.database().ref('participants');
     participants.on('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
-            participantList.push(childSnapshot.val());
+            arr.push(childSnapshot.val());
         });
     });
+    participantList = arr;
+    // return await participantList;
 }
 
-$(function () {
+document.addEventListener('DOMContentLoaded', () => {
     var database = firebase.database();
-    // setTimeout(()=>{
 
+    readUserData();
+
+    setTimeout(() => {
+        let i = 0;
+        const selPartElem = document.getElementById("select-participant");
+        console.log("participantList: ", participantList);
+
+        participantList.forEach((elem) => {
+            console.log('elem:', elem);
+            $('#select-participant').append(`<option value="${i}">Name: ${elem.firstname} ${elem.lastname}</option>`);
+            i++;
+        });
+    }, 1000);
     // console.log("data sent to DB! YOLO");
     // writeUserData('maksik wow', 'kolo', '15', '03:00:18');
-    readUserData();
-    console.log("participantList: ", participantList);
-    
-    const selPartElem = document.getElementById("select-participant");
-    console.log("selPartElem: ", selPartElem);
-    // }, 3000);
 
-    // $('#mySelect').append("<option>BMW</option>")
+
 
     // const button_ = $("#submit_button");
-    // console.log(button_);
     // $("#submit_button").click(function(){
-    //     console.log("data sent to DB! YOLO");
     //     writeUserData('maks', 'kol', '12', '01:00:18');
     // });
-});
-
-
-
+})
