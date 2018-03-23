@@ -48,7 +48,13 @@ app.get('/', ()=>{
 });
 
 app.get('/database/participants-db.json',(req,res)=>{
-  res.send('works fine');
+  res.send(200);
+});
+app.get('/database/routes-db.json',(req,res)=>{
+  res.send(200);
+});
+app.post('/add',(req,res)=>{
+  
 });
 
 app.listen(3000, () => {

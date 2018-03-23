@@ -15,12 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <!-- <script type="text/javascript" src="../database/participants-db.json"></script> -->
-    <script src="/js/get-participants.js"></script>
-    <script> 
-        //This is a shorthand Ajax function
-        var url = '/js/settings-select-menu.js';
-        $.getScript(url);
-    </script>
     <!-- for database auth !!!
          <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" /> -->
@@ -126,19 +120,10 @@
                             <p>
                                 <h2>Page for organisators to make the template for competition</h2>
                             </p>
-                            <div class="custom-select" id="select-walls">
-                                <select>
+                            <div class="custom-select" >
+                                <select id="select-walls">
                                     <option value="0">Select climbing wall:</option>
-                                    <option value="1">I wall </option>
-                                    <option value="2">II wall</option>
-                                    <option value="3">III walls</option>
-                                    <option value="4">IV wall</option>
-                                    <option value="5">V wall </option>
-                                    <option value="6">VI wall </option>
-                                    <option value="7">VII wall</option>
-                                    <option value="8">VIII wall</option>
-                                    <option value="9">IX wall</option>
-                                    <option value="10">X wall</option>
+
                                 </select>
                             </div>
                             <div class="custom-select" id="select-points">
@@ -169,7 +154,13 @@
             </div>
         </div>
     </div>
-
+    <script src="/js/get-participants.js"></script>    
+    <script src="/js/get-routes.js"></script>
+    <script> 
+        //This is a shorthand Ajax function
+        var url = '/js/settings-select-menu.js';
+        $.getScript(url);
+    </script>
 </body>
 
 </html>
