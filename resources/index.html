@@ -16,10 +16,10 @@
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="/js/db_update.js">console.log(`going there=> "/js/db_update.js"`);</script>
+    <script type="text/javascript" src="../database/db.json"></script>
+    <script src="/js/ajax_db.js"></script>
     <script> 
         //This is a shorthand Ajax function
-        console.log(`going there=> "/js/settings-select-menu.js"`);
         var url = '/js/settings-select-menu.js';
         $.getScript(url);
     </script>
@@ -163,7 +163,6 @@
                                 <select id="select-participant">
                                     <option value="0">Points:</option>
                                     <option value="1">10 points</option>
-                                    
                                     <!-- db_uodate.js is filling this part -->
                                 </select>
                             </div>
@@ -174,8 +173,6 @@
             </div>
         </div>
     </div>
-
-
 
 </body>
 

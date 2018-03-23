@@ -1,17 +1,66 @@
+const fs = require('fs');
 const express = require('express');
-const port = 3000;
+
 const app = express();
 
 app.use(express.static('resources'));
 
-app.get('/', function (req, res) {
-  res.send('<h1>Hello World!</h1>');
-//   setTimeout(()=>{
-    
-//   },3000); 
-//   console.log("hello",readUserData());
-})
+const DB_FILE = './database/db.json';
 
-app.listen(port, function () {
-  console.log("Server is running on http://localhost:" + port);
+// app.get('/shopping_list', (req, res) => {
+//     fs.readFile(DB_FILE, (err, data) => {
+//         if (!err){
+//             const shoppingList = JSON.parse(data);
+//             res.send('Lista zakupów: ' + shoppingList.join(', '));
+//         } else {
+//             console.log('Błąd odczytu pliku', err);
+//             res.send('Wystąpił błąd odczytu.');
+//         }
+//     });
+// });
+
+// app.get('/add', (req, res) => {
+//     fs.readFile(DB_FILE, (err, data) => {//Odczytaj plik
+//         if (!err){
+//             //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
+//             const shoppingList = JSON.parse(data);
+//             //Dodaj nowy element:
+//             shoppingList.push('Okulary przeciwsłoneczne');
+//             //Zamień zaktualizowaną tablicę znów na JSON:
+//             const jsonToWrite = JSON.stringify(shoppingList);
+
+//             fs.writeFile(DB_FILE, jsonToWrite, (err, data) => {//Zapisz plik
+//                 if (!err) {
+//                     res.send('Dodano.');
+//                 } else {
+//                     console.log('Błąd zapisu pliku', err);
+//                     res.send('Wystąpił błąd zapisu.');
+//                 }
+//             });
+//         } else {
+//             console.log('Błąd odczytu pliku', err);
+//             res.send('Wystąpił błąd odczytu.');
+//         }
+//     });
+// });
+
+app.get('/#t4', (req,res)=>{
+  console.log('t4 is working. test passed');
+  // fs.readFile(DB_FILE, (err, data) => {
+  //           if (!err){
+  //               const participantList = JSON.parse(data);
+  //               res.send('Lista uczestnikow ' + participantList.join(', '));
+  //           } else {
+  //               console.log('Błąd odczytu pliku', err);
+  //               res.send('Wystąpił błąd odczytu.');
+  //           }
+  //       });  
+});
+
+app.get('/',(req,res)=>{
+  res.send('works fine');
+});
+
+app.listen(3000, () => {
+    console.log('Serwer uruchomiony na porcie http://localhost:3000');
 });

@@ -1,0 +1,26 @@
+[
+	{
+        "fname" : "maks",
+        "lname" : "kol",
+        "number" : "11",
+        "result" : ""
+    },
+    {
+        "fname" : "maks1",
+        "lname" : "kol1",
+        "number" : "111",
+        "result" : ""
+    },
+    {
+        "fname" : "maks2",
+        "lname" : "kol2",
+        "number" : "112",
+        "result" : ""
+    },
+    {
+        "fname" : "maks3",
+        "lname" : "kol3",
+        "number" : "113",
+        "result" : ""
+    }
+]
