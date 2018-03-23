@@ -69,7 +69,6 @@ $(function () {
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
-  },10);
-
+  }, 10);
 });
 

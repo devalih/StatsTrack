@@ -43,21 +43,11 @@ const DB_FILE = './database/db.json';
 //         }
 //     });
 // });
+app.get('/', ()=>{
 
-app.get('/#t4', (req,res)=>{
-  console.log('t4 is working. test passed');
-  // fs.readFile(DB_FILE, (err, data) => {
-  //           if (!err){
-  //               const participantList = JSON.parse(data);
-  //               res.send('Lista uczestnikow ' + participantList.join(', '));
-  //           } else {
-  //               console.log('Błąd odczytu pliku', err);
-  //               res.send('Wystąpił błąd odczytu.');
-  //           }
-  //       });  
 });
 
-app.get('/',(req,res)=>{
+app.get('/database/participants-db.json',(req,res)=>{
   res.send('works fine');
 });
 
