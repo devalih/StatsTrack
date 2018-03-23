@@ -11,11 +11,7 @@ $(function () {
                     ${firstname} ${lastname}
                     </option>
                 `);
-            $('#select-participant').append(`
-                    <option>
-                    ${firstname} ${lastname}
-                    </option>
-                `);
+            
         });
     });
 
