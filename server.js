@@ -50,8 +50,16 @@ app.get('/', ()=>{
 app.get('/database/participants-db.json',(req,res)=>{
   res.send(200);
 });
-app.get('/database/routes-db.json',(req,res)=>{
-  res.send(200);
+app.get('/routes',(req,res)=>{
+  fs.readFile('./resources/database/routes-db.json', (err, data) => {
+            if (!err){
+                const routeList = JSON.parse(data);
+                res.send(routeList);
+            } else {
+                console.log('Błąd odczytu pliku', err);
+                res.send('Wystąpił błąd odczytu.');
+            }
+  });
 });
 app.post('/add',(req,res)=>{
   

@@ -1,5 +1,4 @@
 $(function () {
-
     $.get("http://localhost:3000/database/participants-db.json", function (data, status) {
         data.forEach((elem) => {
             let firstname = JSON.stringify(elem.fname).replace(/"/g, "");
