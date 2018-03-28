@@ -1,10 +1,10 @@
 const fs = require('fs');
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use(express.static('resources'));
-
+app.use(bodyParser.json());
 const DB_FILE = './database/db.json';
 
 // app.get('/shopping_list', (req, res) => {
@@ -72,29 +72,34 @@ app.get('/participants', (req, res) => {
 });
 
 app.post('/add-participant', (req, res) => {
-  fs.readFile('./resources/database/participants-db.json', (err, data) => {
-    // Odczytaj plik
-    if (!err) {
-      //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
-      const participantList = JSON.parse(data);
-      //Dodaj nowy element:
-      participantList.push('Okulary przeciwsłoneczne');
-      //Zamień zaktualizowaną tablicę znów na JSON:
-      const jsonToWrite = JSON.stringify(participantList);
+  const _fname = req.body;
+  console.log(_fname);
+  res.send('done  ');
 
-      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {//Zapisz plik
-        if (!err) {
-          res.send('Dodano.');
-        } else {
-          console.log('Błąd zapisu pliku', err);
-          res.send('Wystąpił błąd zapisu.');
-        }
-      });
-    } else {
-      console.log('Błąd odczytu pliku', err);
-      res.send('Wystąpił błąd odczytu.');
-    }
-  });
+
+  // fs.readFile('./resources/database/participants-db.json', (err, data) => {
+  //   // Odczytaj plik
+  //   if (!err) {
+  //     //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
+  //     const participantList = JSON.parse(data);
+  //     //Dodaj nowy element:
+  //     participantList.push('Okulary przeciwsłoneczne');
+  //     //Zamień zaktualizowaną tablicę znów na JSON:
+  //     const jsonToWrite = JSON.stringify(participantList);
+
+  //     fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {//Zapisz plik
+  //       if (!err) {
+  //         res.send('Dodano.');
+  //       } else {
+  //         console.log('Błąd zapisu pliku', err);
+  //         res.send('Wystąpił błąd zapisu.');
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Błąd odczytu pliku', err);
+  //     res.send('Wystąpił błąd odczytu.');
+  //   }
+  // });
 
 });
 

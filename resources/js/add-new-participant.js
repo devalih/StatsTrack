@@ -5,12 +5,15 @@ $(function () {
         const participant = $('#select-participant :selected').text();
         const [fname,lname] = participant.split(' ');
 
-        console.log('eeee,cos: ',route,points,participant,fname,lname);
-    //     $.post('/add-participant',
-    //     {},
-    //     ()=>{
-
-    //     }
-    // );
+       // console.log('eeee,cos: ',route,points,participant,fname,lname);
+        $.post('/add-participant',
+        {
+            fname,
+            lname,
+            route,
+            points,
+        },(data)=>{
+            if(data === 'done') alert ('Send to server');
+        });
     })
 });
