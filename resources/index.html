@@ -126,8 +126,8 @@
 
                                 </select>
                             </div>
-                            <div class="custom-select" id="select-points">
-                                <select>
+                            <div class="custom-select" >
+                                <select id="select-points">
                                     <option value="0">Points:</option>
                                     <option value="1">1 point</option>
                                     <option value="2">2 points</option>
@@ -147,7 +147,8 @@
                                     <!-- db_uodate.js is filling this part -->
                                 </select>
                             </div>
-                            <button id="submit_button" style="width : 20%; margin-left: 10px;" type="submit">Add participant</button>
+                            <button id="addParticipant_button" style="width : 20%; margin-left: 10px;" type="submit">Add participant</button>
+                            <!-- <input type="button" name="addParticipant" value="Submit"> -->
                         </div>
                     </section>
                 </div>
@@ -156,6 +157,7 @@
     </div>
     <script src="/js/get-participants.js"></script>    
     <script src="/js/get-routes.js"></script>
+    <script src="/js/add-new-participant.js"></script>
     <script> 
         //This is a shorthand Ajax function
         var url = '/js/settings-select-menu.js';

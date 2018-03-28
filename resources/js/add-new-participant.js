@@ -1,10 +1,16 @@
 $(function () {
+    $("#addParticipant_button").click(()=>{
+        const route = $('#select-walls :selected').text();
+        const points = $('#select-points :selected').val();
+        const participant = $('#select-participant :selected').text();
+        const [fname,lname] = participant.split(' ');
 
-    $.post("http://localhost:3000/add", function (data, status) {
-        data.forEach((elem) => {
-            let firstname = JSON.stringify(elem.fname).replace(/"/g, "");
-            let lastname = JSON.stringify(elem.lname).replace(/"/g, "");
-            $('#select-participant').append(`<option>${firstname} ${lastname}</option>`);
-        });
-    });
+        console.log('eeee,cos: ',route,points,participant,fname,lname);
+    //     $.post('/add-participant',
+    //     {},
+    //     ()=>{
+
+    //     }
+    // );
+    })
 });

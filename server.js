@@ -43,28 +43,61 @@ const DB_FILE = './database/db.json';
 //         }
 //     });
 // });
-app.get('/', ()=>{
-
+app.get('/', (req,res) => {
+  
 });
-
-app.get('/database/participants-db.json',(req,res)=>{
-  res.send(200);
-});
-app.get('/routes',(req,res)=>{
+// GET method for ROUTES/WALLS to get them from database and send to front-end
+app.get('/routes', (req, res) => {
   fs.readFile('./resources/database/routes-db.json', (err, data) => {
-            if (!err){
-                const routeList = JSON.parse(data);
-                res.send(routeList);
-            } else {
-                console.log('Błąd odczytu pliku', err);
-                res.send('Wystąpił błąd odczytu.');
-            }
+    if (!err) {
+      const routeList = JSON.parse(data);
+      res.send(routeList);
+    } else {
+      console.log('Błąd odczytu pliku', err);
+      res.send('Wystąpił błąd odczytu.');
+    }
   });
 });
-app.post('/add',(req,res)=>{
-  
+// GET method for PARTICIPANTS to get them from database and send to front-end
+app.get('/participants', (req, res) => {
+  fs.readFile('./resources/database/participants-db.json', (err, data) => {
+    if (!err) {
+      const participantList = JSON.parse(data);
+      res.send(participantList);
+    } else {
+      console.log('Błąd odczytu pliku', err);
+      res.send('Wystąpił błąd odczytu.');
+    }
+  });
+});
+
+app.post('/add-participant', (req, res) => {
+  fs.readFile('./resources/database/participants-db.json', (err, data) => {
+    // Odczytaj plik
+    if (!err) {
+      //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
+      const participantList = JSON.parse(data);
+      //Dodaj nowy element:
+      participantList.push('Okulary przeciwsłoneczne');
+      //Zamień zaktualizowaną tablicę znów na JSON:
+      const jsonToWrite = JSON.stringify(participantList);
+
+      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {//Zapisz plik
+        if (!err) {
+          res.send('Dodano.');
+        } else {
+          console.log('Błąd zapisu pliku', err);
+          res.send('Wystąpił błąd zapisu.');
+        }
+      });
+    } else {
+      console.log('Błąd odczytu pliku', err);
+      res.send('Wystąpił błąd odczytu.');
+    }
+  });
+
 });
 
 app.listen(3000, () => {
-    console.log('Serwer uruchomiony na porcie http://localhost:3000');
+  console.log('Serwer uruchomiony na porcie http://localhost:3000');
 });
