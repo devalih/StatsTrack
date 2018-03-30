@@ -21,6 +21,7 @@ html, body, section, .page {
 	padding: 0;
 	margin:0;
 }
+
 #p1 {
   left: 0;
   background-image: url(../img/background_alt.png);
@@ -163,6 +164,10 @@ a {
     margin-left: 150px; 
     padding:0 20px;
     font-weight: 500;
+  }
+
+  .pages_wrap{
+    width: 75%;
   }
 
 

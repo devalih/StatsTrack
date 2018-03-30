@@ -82,16 +82,21 @@ app.post('/add_participant', (req, res) => {
     // Read file
     if (!err) {
       //If or, than read data from JSON to array:
-      const participantList = JSON.parse(data);
+      let participantList = JSON.parse(data);
       //Add new participant:
       // participantList.push();
       // Update participant's result:
       participantList.forEach(elem => {
         if(elem.fname == _fname && elem.lname == _lname){
-          elem.finishedRoutes +=', ' + _route;
+          // add a coma separator after every result update,
+          // no comma needed for the first result
+          if (!elem.finishedRoutes) elem.finishedRoutes +=', ' + _route;
+          else elem.finishedRoutes += _route;
+           
           elem.result = parseInt(elem.result) + parseInt(_points); 
         }
       });
+      participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
       console.log(participantList);
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
