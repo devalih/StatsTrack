@@ -72,34 +72,43 @@ app.get('/participants', (req, res) => {
 });
 
 app.post('/add_participant', (req, res) => {
-  // const _fname = JSON.parse(req.body);
-  console.log(req.body);
-  res.send(req.body.fname);
+  const _fname = req.body.fname;
+  const _lname = req.body.lname;
+  const _route = req.body.route;
+  const _points = req.body.points;
+  // console.log(_fname,_lname,_route,_points);
 
+  fs.readFile('./resources/database/participants-db.json', (err, data) => {
+    // Read file
+    if (!err) {
+      //If or, than read data from JSON to array:
+      const participantList = JSON.parse(data);
+      //Add new participant:
+      // participantList.push();
+      // Update participant's result:
+      participantList.forEach(elem => {
+        if(elem.fname == _fname && elem.lname == _lname){
+          elem.finishedRoutes +=', ' + _route;
+          elem.result = parseInt(elem.result) + parseInt(_points); 
+        }
+      });
+      console.log(participantList);
+      //Change new update array back to JSON:
+      const jsonToWrite = JSON.stringify(participantList);
 
-  // fs.readFile('./resources/database/participants-db.json', (err, data) => {
-  //   // Odczytaj plik
-  //   if (!err) {
-  //     //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
-  //     const participantList = JSON.parse(data);
-  //     //Dodaj nowy element:
-  //     participantList.push('Okulary przeciwsłoneczne');
-  //     //Zamień zaktualizowaną tablicę znów na JSON:
-  //     const jsonToWrite = JSON.stringify(participantList);
-
-  //     fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {//Zapisz plik
-  //       if (!err) {
-  //         res.send('Dodano.');
-  //       } else {
-  //         console.log('Błąd zapisu pliku', err);
-  //         res.send('Wystąpił błąd zapisu.');
-  //       }
-  //     });
-  //   } else {
-  //     console.log('Błąd odczytu pliku', err);
-  //     res.send('Wystąpił błąd odczytu.');
-  //   }
-  // });
+      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
+        if (!err) {
+          res.send('Dodano.');
+        } else {
+          console.log('Błąd zapisu pliku', err);
+          res.send('Wystąpił błąd zapisu.');
+        }
+      });
+    } else {
+      console.log('Błąd odczytu pliku', err);
+      res.send('Wystąpił błąd odczytu.');
+    }
+  });
 
 });
 
