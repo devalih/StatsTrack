@@ -6,7 +6,7 @@ $(function () {
         const [fname,lname] = participant.split(' ');
 
        // console.log('eeee,cos: ',route,points,participant,fname,lname);
-        $.post('/add-participant',
+        $.post('/add_participant',
         {
             fname,
             lname,

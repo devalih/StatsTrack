@@ -3,9 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static('resources'));
-app.use(bodyParser.json());
-const DB_FILE = './database/db.json';
+
 
 // app.get('/shopping_list', (req, res) => {
 //     fs.readFile(DB_FILE, (err, data) => {
@@ -71,10 +71,10 @@ app.get('/participants', (req, res) => {
   });
 });
 
-app.post('/add-participant', (req, res) => {
-  const _fname = req.body;
-  console.log(_fname);
-  res.send('done  ');
+app.post('/add_participant', (req, res) => {
+  // const _fname = JSON.parse(req.body);
+  console.log(req.body);
+  res.send(req.body.fname);
 
 
   // fs.readFile('./resources/database/participants-db.json', (err, data) => {
