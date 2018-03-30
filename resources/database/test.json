@@ -1,0 +1,7 @@
+[
+    {"fname":"maks","lname":"kol","number":"10","finishedRoutes":"V, VI, VIII, V, VII","result":25},
+    {"fname":"maks2","lname":"kol2","number":"12","finishedRoutes":"VI","result":18},
+    {"fname":"maks3","lname":"kol3","number":"13","finishedRoutes":"IV","result":16},
+    {"fname":"maks1","lname":"kol1","number":"11","finishedRoutes":"IV","result":5}
+    
+]

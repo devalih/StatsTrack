@@ -90,7 +90,7 @@ app.post('/add_participant', (req, res) => {
         if(elem.fname == _fname && elem.lname == _lname){
           // add a coma separator after every result update,
           // no comma needed for the first result
-          if (!elem.finishedRoutes) elem.finishedRoutes +=', ' + _route;
+          if (elem.finishedRoutes != "") elem.finishedRoutes +=', ' + _route;
           else elem.finishedRoutes += _route;
            
           elem.result = parseInt(elem.result) + parseInt(_points); 

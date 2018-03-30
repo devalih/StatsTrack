@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
-    <link rel="stylesheet" type="text/css" href="/css/result-table-style.css">
+    <link rel="stylesheet" type="text/css" href="/css/result-table.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -70,7 +71,7 @@
                             <div class="main">
                                 <br>
                                 <h2>Login as Participant or as Organisator</h2>
-                                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Find Competition</button>
                                 <div id="id01" class="modal">
                                     <form class="modal-content animate">
                                         <div class="imgcontainer">
@@ -79,28 +80,28 @@
                                         </div>
 
                                         <div class="container">
-                                            <label for="uname">
-                                                <b>Username</b>
+                                            <label for="competition_id">
+                                                <b>Competition ID</b>
                                             </label>
-                                            <input type="text" placeholder="Enter Username" name="uname" required>
+                                            <input type="text" placeholder="Enter Competition ID" name="competition_id" required>
 
-                                            <label for="psw">
+                                            <!-- <label for="psw">
                                                 <b>Password</b>
                                             </label>
-                                            <input type="password" placeholder="Enter Password" name="psw" required>
+                                            <input type="password" placeholder="Enter Password" name="psw" required> -->
 
-                                            <button type="submit">Login</button>
-                                            <label>
+                                            <button type="submit">Find Competition</button>
+                                            <!-- <label>
                                                 <input type="checkbox" checked="checked" name="remember"> Remember me
-                                            </label>
+                                            </label> -->
                                         </div>
 
-                                        <div class="container">
+                                        <!-- <div class="container">
                                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                                             <span class="psw">Forgot
                                                 <a href="#">password?</a>
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </form>
                                 </div>
                             </div>
@@ -117,6 +118,7 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Surname</th>
+                                                <!-- <th>Number</th> -->
                                                 <th>Finished Routes</th>
                                                 <th>Result</th>
                                             </tr>
@@ -140,36 +142,37 @@
                                 <p>
                                     <h2>Page for organisators to make the template for competition</h2>
                                 </p>
-                                <div class="custom-select">
-                                    <select id="select-walls">
-                                        <option value="0">Select climbing wall:</option>
+                                <div class="select-wrap">
+                                    <div class="custom-select">
+                                        <select id="select-walls">
+                                            <option value="0">Select climbing wall:</option>
 
-                                    </select>
+                                        </select>
+                                    </div>
+                                    <div class="custom-select">
+                                        <select id="select-points">
+                                            <option value="0">Points:</option>
+                                            <option value="1">1 point</option>
+                                            <option value="2">2 points</option>
+                                            <option value="3">3 points</option>
+                                            <option value="4">4 points</option>
+                                            <option value="5">5 points</option>
+                                            <option value="6">6 points</option>
+                                            <option value="7">7 points</option>
+                                            <option value="8">8 points</option>
+                                            <option value="9">9 points</option>
+                                            <option value="10">10 points</option>
+                                        </select>
+                                    </div>
+                                    <div class="custom-select">
+                                        <select id="select-participant">
+                                            <option>Participants:</option>
+                                            <!-- db_uodate.js is filling this part -->
+                                        </select>
+                                    </div>
+                                    <button id="addParticipant_button" type="submit">Add participant</button>
+                                    <!-- <input type="button" name="addParticipant" value="Submit"> -->
                                 </div>
-                                <div class="custom-select">
-                                    <select id="select-points">
-                                        <option value="0">Points:</option>
-                                        <option value="1">1 point</option>
-                                        <option value="2">2 points</option>
-                                        <option value="3">3 points</option>
-                                        <option value="4">4 points</option>
-                                        <option value="5">5 points</option>
-                                        <option value="6">6 points</option>
-                                        <option value="7">7 points</option>
-                                        <option value="8">8 points</option>
-                                        <option value="9">9 points</option>
-                                        <option value="10">10 points</option>
-                                    </select>
-                                </div>
-                                <div class="custom-select">
-                                    <select id="select-participant">
-                                        <option>Participants:</option>
-                                        <!-- db_uodate.js is filling this part -->
-                                    </select>
-                                </div>
-                                <button id="addParticipant_button" style="width : 20%; margin-left: 10px;" type="submit">Add participant</button>
-                                <!-- <input type="button" name="addParticipant" value="Submit"> -->
-
                             </div>
                         </div>
                     </section>
@@ -179,7 +182,7 @@
     </div>
     <script src="/js/get-participants.js"></script>
     <script src="/js/get-routes.js"></script>
-    <script src="/js/add-new-participant.js"></script>
+    <script src="/js/add-result.js"></script>
     <script src="/js/result-table-style.js"></script>
     <script src="/js/ranking-table-update.js"></script>
     <script> 

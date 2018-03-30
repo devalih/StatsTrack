@@ -63,8 +63,6 @@ $(function () {
           x[i].classList.add("select-hide");
         }
       }
-
-
     }
     /*if the user clicks anywhere outside the select box,
     then close all select boxes:*/

@@ -6,6 +6,7 @@ $(function () {
             let firstname = JSON.stringify(elem.fname).replace(/"/g, "");
             let lastname = JSON.stringify(elem.lname).replace(/"/g, "");
             let routes = JSON.stringify(elem.finishedRoutes).replace(/"/g, "");
+            // let number = JSON.stringify(elem.number).replace(/"/g, "");
             let result = JSON.stringify(elem.result);
             $(".competitors-table").append(
                 `<tr>

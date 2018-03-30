@@ -15,5 +15,6 @@ $(function () {
         },(data)=>{
             if(data === 'done') alert ('Send to server');
         });
+        alert ('Result was added successfully!');
     })
 });

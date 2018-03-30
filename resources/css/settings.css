@@ -4,6 +4,12 @@
     float: left;
     width:20%;
   }
+
+  /* add participant button */
+  #addParticipant_button{
+    width : 20%;
+    margin-left: 10px;
+  }
   
   .custom-select select {
     transition: all 0.5s linear;
@@ -53,6 +59,28 @@
   .select-items div:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
+
+  @media all and (max-width: 500px){
+    .select-wrap{
+      font-size: 6px;
+      text-transform: uppercase;
+    }
+    #addParticipant_button{
+      width : 30%;
+      font-size: 8px;
+      padding: 4px 10px;
+    /* margin: 8px 0; */
+    }
+    .select-items div,.select-selected {
+      padding: 6px 10px;
+    }
+  }
+  @media all and (max-width: 1025px) and (min-width: 501px){
+    .select-wrap{
+      font-size: 30%;
+    }
+  }
+
 
   /* POINTS CUST. SET. */
   /* #select-points{
