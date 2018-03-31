@@ -1,9 +1,9 @@
   /* START TEST LOGIN FORM */
   /* Full-width input fields */
   input[type=text] {
-    width: 100%;
+    width: 60%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 30px;
     display: inline-block;
     border: 1px solid rgba(204, 204, 204, 0.179);
     box-sizing: border-box;

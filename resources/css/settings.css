@@ -6,7 +6,7 @@
   }
 
   /* add participant button */
-  #addParticipant_button{
+  #addResult_button{
     width : 20%;
     margin-left: 10px;
   }
@@ -65,7 +65,7 @@
       font-size: 6px;
       text-transform: uppercase;
     }
-    #addParticipant_button{
+    #addResult_button{
       width : 30%;
       font-size: 8px;
       padding: 4px 10px;

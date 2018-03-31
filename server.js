@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('resources'));
 
 
@@ -43,8 +43,8 @@ app.use(express.static('resources'));
 //         }
 //     });
 // });
-app.get('/', (req,res) => {
-  
+app.get('/', (req, res) => {
+  res.send('OK');
 });
 // GET method for ROUTES/WALLS to get them from database and send to front-end
 app.get('/routes', (req, res) => {
@@ -71,11 +71,11 @@ app.get('/participants', (req, res) => {
   });
 });
 
-app.post('/add_participant', (req, res) => {
-  const _fname = req.body.fname;
-  const _lname = req.body.lname;
-  const _route = req.body.route;
-  const _points = req.body.points;
+app.post('/add_result', (req, res) => {
+  const _fname = req.body.fname,
+    _lname = req.body.lname,
+    _route = req.body.route,
+    _points = req.body.points;
   // console.log(_fname,_lname,_route,_points);
 
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
@@ -87,13 +87,15 @@ app.post('/add_participant', (req, res) => {
       // participantList.push();
       // Update participant's result:
       participantList.forEach(elem => {
-        if(elem.fname == _fname && elem.lname == _lname){
+        if (elem.fname == _fname && elem.lname == _lname) {
           // add a coma separator after every result update,
           // no comma needed for the first result
-          if (elem.finishedRoutes != "") elem.finishedRoutes +=', ' + _route;
-          else elem.finishedRoutes += _route;
-           
-          elem.result = parseInt(elem.result) + parseInt(_points); 
+          if (elem.finishedRoutes != "") 
+            elem.finishedRoutes += ', ' + _route;
+          else 
+            elem.finishedRoutes += _route;
+
+          elem.result = parseInt(elem.result) + parseInt(_points);
         }
       });
       participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
@@ -114,8 +116,58 @@ app.post('/add_participant', (req, res) => {
       res.send('Wystąpił błąd odczytu.');
     }
   });
-
 });
+
+
+app.post('/new_participant', (req, res) => {
+  const _fname = req.body.fname,
+        _lname = req.body.lname,
+        _route = "",
+        _points = 0;
+    const participant = {
+      "fname" : _fname,
+      "lname" : _lname,
+      "finishedRoutes" : _route,
+      "result" : _points,
+    }
+  // console.log(_fname,_lname,_route,_points);
+
+  fs.readFile('./resources/database/participants-db.json', (err, data) => {
+    // Read file
+    if (!err) {
+      //If or, than read data from JSON to array:
+      let participantList = JSON.parse(data);
+      //Add new participant:
+      // participantList.push();
+      // Update participant's result:
+      let isExists = false;
+      participantList.forEach(elem => {
+        if (elem.fname == _fname && elem.lname == _lname)
+          isExists = true;
+      });
+      if (isExists === false) 
+        participantList.push(participant);
+      participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
+      console.log(participantList);
+      //Change new update array back to JSON:
+      const jsonToWrite = JSON.stringify(participantList);
+
+      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
+        if (!err) {
+          res.send('Dodano.');
+        } else {
+          console.log('Błąd zapisu pliku', err);
+          res.send('Wystąpił błąd zapisu.');
+        }
+      });
+    } else {
+      console.log('Błąd odczytu pliku', err);
+      res.send('Wystąpił błąd odczytu.');
+    }
+  });
+});
+
+
 
 app.listen(3000, () => {
   console.log('Serwer uruchomiony na porcie http://localhost:3000');

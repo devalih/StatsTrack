@@ -1,12 +1,12 @@
 $(function () {
-    $("#addParticipant_button").click(()=>{
-        const route = $('#select-walls :selected').text();
-        const points = $('#select-points :selected').val();
-        const participant = $('#select-participant :selected').text();
-        const [fname,lname] = participant.split(' ');
+    $("#addResult_button").click(()=>{
+        const   route = $('#select-walls :selected').text(),
+                points = $('#select-points :selected').val(),
+                participant = $('#select-participant :selected').text(),
+                [fname,lname] = participant.split(' ');
 
        // console.log('eeee,cos: ',route,points,participant,fname,lname);
-        $.post('/add_participant',
+        $.post('/add_result',
         {
             fname,
             lname,
@@ -16,5 +16,17 @@ $(function () {
             if(data === 'done') alert ('Send to server');
         });
         alert ('Result was added successfully!');
+    });
+    $("#addParticipant_button").click(()=>{
+        const   fname = document.getElementById("fname").value,
+                lname = document.getElementById("lname").value;
+        $.post('/new_participant',
+        {
+            fname,
+            lname,
+        },(data)=>{
+            if(data === 'done') alert ('Send to server');
+        });
+        alert ('Participant was added successfully!');
     })
 });

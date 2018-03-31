@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
-    <link rel="stylesheet" type="text/css" href="/css/result-table.css">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/result-table.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -44,7 +44,6 @@
                                         <img class="img_class" src="/img/menu/ranking.svg">
                                         <p class="img_text">Ranking</p>
                                     </div>
-
                                 </li>
                             </a>
                             <hr>
@@ -78,30 +77,13 @@
                                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                             <img src="/img/logo_round.png" alt="Avatar" class="avatar">
                                         </div>
-
                                         <div class="container">
                                             <label for="competition_id">
-                                                <b>Competition ID</b>
+                                                <b>Competition ID:</b>
                                             </label>
                                             <input type="text" placeholder="Enter Competition ID" name="competition_id" required>
-
-                                            <!-- <label for="psw">
-                                                <b>Password</b>
-                                            </label>
-                                            <input type="password" placeholder="Enter Password" name="psw" required> -->
-
                                             <button type="submit">Find Competition</button>
-                                            <!-- <label>
-                                                <input type="checkbox" checked="checked" name="remember"> Remember me
-                                            </label> -->
                                         </div>
-
-                                        <!-- <div class="container">
-                                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                                            <span class="psw">Forgot
-                                                <a href="#">password?</a>
-                                            </span>
-                                        </div> -->
                                     </form>
                                 </div>
                             </div>
@@ -127,6 +109,9 @@
                                             <!-- data coming from database -->
                                         </tbody>
                                     </table>
+                                    <input class="participant" id="fname" type="text" value="Your name">
+                                    <input class="participant" id="lname" type="text" value="Your surname">
+                                    <button id="addParticipant_button" type="submit">Add participant</button>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +155,7 @@
                                             <!-- db_uodate.js is filling this part -->
                                         </select>
                                     </div>
-                                    <button id="addParticipant_button" type="submit">Add participant</button>
+                                    <button id="addResult_button" type="submit">Add participant</button>
                                     <!-- <input type="button" name="addParticipant" value="Submit"> -->
                                 </div>
                             </div>
