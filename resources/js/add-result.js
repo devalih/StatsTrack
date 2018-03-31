@@ -1,3 +1,32 @@
+function upd_table() {
+    // e.preventDefault();
+    $(".competitors-table").empty();
+    setTimeout(() => {
+        $.ajax({
+            url: '/participants',
+            success: function (result) {
+                console.log('AJAX result', result);
+                result.forEach((elem) => {
+                    let firstname = JSON.stringify(elem.fname).replace(/"/g, ""),
+                        lastname = JSON.stringify(elem.lname).replace(/"/g, ""),
+                        routes = JSON.stringify(elem.finishedRoutes).replace(/"/g, ""),
+                        result = JSON.stringify(elem.result);
+                    $(".competitors-table").append(
+                        `<tr>
+                            <td>${firstname}</td> 
+                            <td>${lastname}</td>
+                            <td>${routes}</td> 
+                            <td>${result}</td>    
+                        </tr>`);
+                });
+            },
+            error: function (request, status, error) {
+                serviceError();
+            }
+        });
+    }, 10);
+}
+
 $(function () {
     $("#addResult_button").click(() => {
         const route = $('#select-walls :selected').text(),
@@ -13,8 +42,10 @@ $(function () {
                 route,
                 points,
             }, (data) => {
-                if (data.success)
+                if (data.success) {
                     alert('Result was updated');
+                    upd_table();
+                }
                 else
                     alert('Result was not updated, try again');
             });
@@ -27,8 +58,10 @@ $(function () {
                 fname,
                 lname,
             }, (data) => {
-                if (data.success)
+                if (data.success) {
                     alert('New user was added successfully!');
+                    upd_table();
+                }
                 else
                     alert('This user has already been created');
             });

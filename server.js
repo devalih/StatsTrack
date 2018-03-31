@@ -87,9 +87,9 @@ app.post('/add_result', (req, res) => {
         if (elem.fname == _fname && elem.lname == _lname) {
           // add a coma separator after every result update,
           // no comma needed for the first result
-          if (elem.finishedRoutes != "") 
+          if (elem.finishedRoutes != "")
             elem.finishedRoutes += ', ' + _route;
-          else 
+          else
             elem.finishedRoutes += _route;
 
           elem.result = parseInt(elem.result) + parseInt(_points);
@@ -102,30 +102,30 @@ app.post('/add_result', (req, res) => {
 
       fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
         if (!err) {
-          res.json({success: true});
+          res.json({ success: true });
         } else {
           console.log('Cant write file', err);
-          res.json({success: false});
+          res.json({ success: false });
         }
       });
     } else {
       console.log('Cant read file', err);
-      res.json({success: false});
+      res.json({ success: false });
     }
   });
 });
 
 app.post('/new_participant', (req, res) => {
   const _fname = req.body.fname,
-        _lname = req.body.lname,
-        _route = "",
-        _points = 0;
-    const participant = {
-      "fname" : _fname,
-      "lname" : _lname,
-      "finishedRoutes" : _route,
-      "result" : _points,
-    }
+    _lname = req.body.lname,
+    _route = "",
+    _points = 0;
+  const participant = {
+    "fname": _fname,
+    "lname": _lname,
+    "finishedRoutes": _route,
+    "result": _points,
+  }
 
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
     // Read file
@@ -136,11 +136,11 @@ app.post('/new_participant', (req, res) => {
       let isNew = true;
       // Update participant's result:
       participantList.forEach(elem => {
-        if (elem.fname == _fname && elem.lname == _lname){
-          isNew = false;          
+        if (elem.fname == _fname && elem.lname == _lname) {
+          isNew = false;
         }
       });
-      if (isNew) 
+      if (isNew)
         participantList.push(participant);
       participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
       console.log(participantList);
@@ -148,24 +148,24 @@ app.post('/new_participant', (req, res) => {
       const jsonToWrite = JSON.stringify(participantList);
       fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
         if (!err && isNew) {
-          res.json({success: true});
+          res.json({ success: true });
         } else {
           console.log('Cant write file or isNew === false', err);
-          res.json({success: false});
+          res.json({ success: false });
         }
       });
     } else {
-        console.log('Cant read file', err);
-        res.json({success: false});
+      console.log('Cant read file', err);
+      res.json({ success: false });
     }
   });
 });
 
 app.post('/delete_participant', (req, res) => {
   const _fname = req.body.fname,
-        _lname = req.body.lname;
+    _lname = req.body.lname;
   let isRemoved = false;
-  console.log(_fname,_lname);
+  console.log(_fname, _lname);
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
     // Read file
     if (!err) {
@@ -174,9 +174,9 @@ app.post('/delete_participant', (req, res) => {
       // Update participant's result:
       let i = 0;
       participantList.forEach(elem => {
-        if (elem.fname == _fname && elem.lname == _lname){
-          participantList.splice(i,1);
-          isRemoved = true;   
+        if (elem.fname == _fname && elem.lname == _lname) {
+          participantList.splice(i, 1);
+          isRemoved = true;
         }
         i++;
       });
@@ -186,15 +186,15 @@ app.post('/delete_participant', (req, res) => {
       const jsonToWrite = JSON.stringify(participantList);
       fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
         if (!err && isRemoved) {
-          res.json({success: true});
+          res.json({ success: true });
         } else {
           console.log('Cant write file or isRemoved === false', err);
-          res.json({success: false});
+          res.json({ success: false });
         }
       });
     } else {
-        console.log('Cant read file', err);
-        res.json({success: false});
+      console.log('Cant read file', err);
+      res.json({ success: false });
     }
   });
 });
