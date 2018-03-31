@@ -1,7 +1,6 @@
 $(function () {
     $("#deleteParticipant_button").click(() => {
-        const fname = document.getElementById("fname_del").value,
-            lname = document.getElementById("lname_del").value;
+        const [fname,lname] = $('#select-participant-delete :selected').text().split(" ");
         $.post('/delete_participant',
             {
                 fname,

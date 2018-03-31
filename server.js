@@ -7,45 +7,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('resources'));
 
 
-// app.get('/shopping_list', (req, res) => {
-//     fs.readFile(DB_FILE, (err, data) => {
-//         if (!err){
-//             const shoppingList = JSON.parse(data);
-//             res.send('Lista zakupów: ' + shoppingList.join(', '));
-//         } else {
-//             console.log('Błąd odczytu pliku', err);
-//             res.send('Wystąpił błąd odczytu.');
-//         }
-//     });
-// });
-
-// app.get('/add', (req, res) => {
-//     fs.readFile(DB_FILE, (err, data) => {//Odczytaj plik
-//         if (!err){
-//             //Jeżeli jest ok, to wczytaj dane z JSONa do tablicy:
-//             const shoppingList = JSON.parse(data);
-//             //Dodaj nowy element:
-//             shoppingList.push('Okulary przeciwsłoneczne');
-//             //Zamień zaktualizowaną tablicę znów na JSON:
-//             const jsonToWrite = JSON.stringify(shoppingList);
-
-//             fs.writeFile(DB_FILE, jsonToWrite, (err, data) => {//Zapisz plik
-//                 if (!err) {
-//                     res.send('Dodano.');
-//                 } else {
-//                     console.log('Błąd zapisu pliku', err);
-//                     res.send('Wystąpił błąd zapisu.');
-//                 }
-//             });
-//         } else {
-//             console.log('Błąd odczytu pliku', err);
-//             res.send('Wystąpił błąd odczytu.');
-//         }
-//     });
-// });
 app.get('/', (req, res) => {
   res.send('OK');
 });
+
 // GET method for ROUTES/WALLS to get them from database and send to front-end
 app.get('/routes', (req, res) => {
   fs.readFile('./resources/database/routes-db.json', (err, data) => {
@@ -58,6 +23,7 @@ app.get('/routes', (req, res) => {
     }
   });
 });
+
 // GET method for PARTICIPANTS to get them from database and send to front-end
 app.get('/participants', (req, res) => {
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
@@ -136,9 +102,8 @@ app.post('/new_participant', (req, res) => {
       let isNew = true;
       // Update participant's result:
       participantList.forEach(elem => {
-        if (elem.fname == _fname && elem.lname == _lname) {
+        if (elem.fname == _fname && elem.lname == _lname)
           isNew = false;
-        }
       });
       if (isNew)
         participantList.push(participant);

@@ -4,6 +4,7 @@ $(function () {
             let firstname = JSON.stringify(elem.fname).replace(/"/g, "");
             let lastname = JSON.stringify(elem.lname).replace(/"/g, "");
             $('#select-participant').append(`<option>${firstname} ${lastname}</option>`);
+            $('#select-participant-delete').append(`<option>${firstname} ${lastname}</option>`);
         });
     });
 });

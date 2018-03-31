@@ -154,7 +154,7 @@
                                     <div class="custom-select">
                                         <select id="select-participant">
                                             <option>Participants:</option>
-                                            <!-- db_uodate.js is filling this part -->
+                                            <!-- db_update.js is filling this part -->
                                         </select>
                                     </div>
                                     <button id="addResult_button" type="submit">Add result</button>
@@ -162,9 +162,20 @@
                                 </div>
                                 <br>
                                 <div class="form_div">
-                                    <input class="participant" id="fname_del" type="text" value="Name">
-                                    <input class="participant" id="lname_del" type="text" value="Surname">
-                                    <button id="deleteParticipant_button" type="submit">DELETE</button>
+                                    <div class="pages_wrap">
+                                        <div class="select-wrap">
+                                            <div class="custom-select">
+                                                <select id="select-participant-delete">
+                                                    <option>Participants:</option>
+                                                    <!-- db_update.js is filling this part -->
+                                                </select>
+                                            </div>
+                                            <button id="deleteParticipant_button" type="submit">DELETE</button>
+                                        </div>
+                                    </div>
+                                    <!-- <input class="participant" id="fname_del" type="text" value="Name">
+                                    <input class="participant" id="lname_del" type="text" value="Surname"> -->
+                                    
                                 </div>
                             </div>
                         </div>
