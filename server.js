@@ -76,15 +76,12 @@ app.post('/add_result', (req, res) => {
     _lname = req.body.lname,
     _route = req.body.route,
     _points = req.body.points;
-  // console.log(_fname,_lname,_route,_points);
 
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
     // Read file
     if (!err) {
-      //If or, than read data from JSON to array:
+      //If OK, than read data from JSON to array:
       let participantList = JSON.parse(data);
-      //Add new participant:
-      // participantList.push();
       // Update participant's result:
       participantList.forEach(elem => {
         if (elem.fname == _fname && elem.lname == _lname) {
@@ -105,15 +102,15 @@ app.post('/add_result', (req, res) => {
 
       fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
         if (!err) {
-          res.send('Dodano.');
+          res.json({success: true});
         } else {
-          console.log('Błąd zapisu pliku', err);
-          res.send('Wystąpił błąd zapisu.');
+          console.log('Cant write file', err);
+          res.json({success: false});
         }
       });
     } else {
-      console.log('Błąd odczytu pliku', err);
-      res.send('Wystąpił błąd odczytu.');
+      console.log('Cant read file', err);
+      res.json({success: false});
     }
   });
 });
@@ -130,42 +127,79 @@ app.post('/new_participant', (req, res) => {
       "finishedRoutes" : _route,
       "result" : _points,
     }
-  // console.log(_fname,_lname,_route,_points);
 
   fs.readFile('./resources/database/participants-db.json', (err, data) => {
     // Read file
     if (!err) {
-      //If or, than read data from JSON to array:
+      //If OK, than read data from JSON to array:
       let participantList = JSON.parse(data);
-      //Add new participant:
-      // participantList.push();
+      // flag to check if the user exists or not
+      let isNew = true;
       // Update participant's result:
-      let isExists = false;
       participantList.forEach(elem => {
-        if (elem.fname == _fname && elem.lname == _lname)
-          isExists = true;
+        if (elem.fname == _fname && elem.lname == _lname){
+          isNew = false;          
+        }
       });
-      if (isExists === false) 
+      if (isNew) 
         participantList.push(participant);
       participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
       console.log(participantList);
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
-
       fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
-        if (!err) {
-          res.send('Dodano.');
+        if (!err && isNew) {
+          res.json({success: true});
         } else {
-          console.log('Błąd zapisu pliku', err);
-          res.send('Wystąpił błąd zapisu.');
+          console.log('Cant write file or isNew === false', err);
+          res.json({success: false});
         }
       });
     } else {
-      console.log('Błąd odczytu pliku', err);
-      res.send('Wystąpił błąd odczytu.');
+        console.log('Cant read file', err);
+        res.json({success: false});
     }
   });
 });
+
+app.post('/delete_participant', (req, res) => {
+  const _fname = req.body.fname,
+        _lname = req.body.lname;
+  let isRemoved = false;
+  console.log(_fname,_lname);
+  fs.readFile('./resources/database/participants-db.json', (err, data) => {
+    // Read file
+    if (!err) {
+      //If OK, than read data from JSON to array:
+      let participantList = JSON.parse(data);
+      // Update participant's result:
+      let i = 0;
+      participantList.forEach(elem => {
+        if (elem.fname == _fname && elem.lname == _lname){
+          participantList.splice(i,1);
+          isRemoved = true;   
+        }
+        i++;
+      });
+      participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
+      console.log(participantList);
+      //Change new update array back to JSON:
+      const jsonToWrite = JSON.stringify(participantList);
+      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
+        if (!err && isRemoved) {
+          res.json({success: true});
+        } else {
+          console.log('Cant write file or isRemoved === false', err);
+          res.json({success: false});
+        }
+      });
+    } else {
+        console.log('Cant read file', err);
+        res.json({success: false});
+    }
+  });
+});
+
 
 
 

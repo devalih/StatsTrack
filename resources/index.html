@@ -155,9 +155,12 @@
                                             <!-- db_uodate.js is filling this part -->
                                         </select>
                                     </div>
-                                    <button id="addResult_button" type="submit">Add participant</button>
+                                    <button id="addResult_button" type="submit">Add result</button>
                                     <!-- <input type="button" name="addParticipant" value="Submit"> -->
                                 </div>
+                                <input class="participant" id="fname_del" type="text" value="Participant name">
+                                <input class="participant" id="lname_del" type="text" value="Participant surname">
+                                <button id="deleteParticipant_button" type="submit">DELETE Participant</button>
                             </div>
                         </div>
                     </section>
@@ -170,6 +173,7 @@
     <script src="/js/add-result.js"></script>
     <script src="/js/result-table-style.js"></script>
     <script src="/js/ranking-table-update.js"></script>
+    <script src="/js/delete-user.js"></script>
     <script> 
         //This is a shorthand Ajax function
         var url = '/js/settings-select-menu.js';
