@@ -89,7 +89,7 @@
                             </div>
 
                         </div>
-                        <div style="overflow:auto;" class="page" id="p2">
+                        <div class="page" id="p2">
                             <div class="pages_wrap">
                                 <p>
                                     <h2>Your competition's results live</h2>
@@ -109,12 +109,10 @@
                                             <!-- data coming from database -->
                                         </tbody>
                                     </table>
-                                    <div style="margin-left:23%;" class="form_div">
-                                        <form action="/new_participant" method="post">
-                                            <input class="participant" id="fname" type="text" value="Your name">
-                                            <input class="participant" id="lname" type="text" value="Your surname">
-                                            <button id="addParticipant_button" type="submit">Add new</button>
-                                        </form>
+                                    <div style="margin-left:25.5%;" class="form_div">
+                                        <input class="participant" id="fname" type="text" value="Your name">
+                                        <input class="participant" id="lname" type="text" value="Your surname">
+                                        <button id="addParticipant_button" type="submit">Add new</button>
                                     </div>
                                 </div>
                             </div>
@@ -164,11 +162,9 @@
                                 </div>
                                 <br>
                                 <div class="form_div">
-                                    <form action="/delete_participant" method="post">
-                                        <input class="participant" id="fname_del" type="text" value="Name">
-                                        <input class="participant" id="lname_del" type="text" value="Surname">
-                                        <button id="deleteParticipant_button" type="submit">DELETE</button>
-                                    </form>
+                                    <input class="participant" id="fname_del" type="text" value="Name">
+                                    <input class="participant" id="lname_del" type="text" value="Surname">
+                                    <button id="deleteParticipant_button" type="submit">DELETE</button>
                                 </div>
                             </div>
                         </div>
