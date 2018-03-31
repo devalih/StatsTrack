@@ -115,7 +115,6 @@ app.post('/add_result', (req, res) => {
   });
 });
 
-
 app.post('/new_participant', (req, res) => {
   const _fname = req.body.fname,
         _lname = req.body.lname,

@@ -169,12 +169,15 @@ a {
   .pages_wrap{
     width: 75%;
   }
-
-
+  .form_div{
+    max-width: 300px;
+  }
 
    /* FOR MOBILE PHONES TO SCALE */
    @media all and (max-width: 500px){ 
-
+    .form_div{
+      max-width: 150px;
+    }
     .img_wraper:hover .img_text {
       left:100px;
       color: #3d8f9dbf;

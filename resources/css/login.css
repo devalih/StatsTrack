@@ -1,23 +1,35 @@
   /* START TEST LOGIN FORM */
   /* Full-width input fields */
   input[type=text] {
-    width: 60%;
+    /* width: 60%; */
     padding: 12px 20px;
-    margin: 8px 30px;
+    /* margin: 8px 30px; */
     display: inline-block;
     border: 1px solid rgba(204, 204, 204, 0.179);
+    width:100%; 
+    min-width: 20px;
+    margin: 0;
+    margin-bottom: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   
   /* Set a style for all buttons */
   button {
+    /* min-width: 100px; */
     background-color: #3d8f9dbf;
     color: white;
     padding: 12px 20px;
     /* margin: 8px 0; */
     border: none;
     cursor: pointer;
-    width: 100%;
+    /* width: 100%; */
+    width:100%; 
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
   
   button:hover {
@@ -46,7 +58,6 @@
   .container {
     padding: 15px;
   }
-
   
   /* The Modal (background) */
   .modal {
@@ -102,5 +113,20 @@
     from {transform: scale(0)} 
     to {transform: scale(1)}
   }
-  
+  @media all and (max-width: 500px){
+
+    input[type=text] {
+      padding: 2px 5px;
+      min-width: 120px;
+      width:30%; 
+      font-size: 8px;
+      margin-bottom: -10px;
+    }
+
+    button {
+      padding: 2px 5px;      
+      font-size: 8px;
+      max-width: 120px; 
+    }
+  }
     /* FINISH TEST LOGIN FORM */
