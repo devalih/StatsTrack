@@ -145,11 +145,11 @@ app.get('/participants', (req, res) => {
 });
 
 // add New Result
-app.post('/add_result', (req, res) => {
+app.post('/participant/add_result', (req, res) => {
   addNewResult(participantsDB,req.body,req,res);
 });
 
-app.post('/new_participant', (req, res) => {
+app.post('/participant/new', (req, res) => {
   const participant = {
     "fname": req.body.fname,
     "lname": req.body.lname,
@@ -159,7 +159,7 @@ app.post('/new_participant', (req, res) => {
   addNewParticipant(participantsDB,participant,req,res);
 });
 
-app.post('/delete_participant', (req, res) => {
+app.post('/participant/delete', (req, res) => {
   deleteParticipant(participantsDB,req.body,req,res);
 });
 

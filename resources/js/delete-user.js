@@ -1,7 +1,7 @@
 $(function () {
     $("#deleteParticipant_button").click(() => {
         const [fname,lname] = $('#select-participant-delete :selected').text().split(" ");
-        $.post('/delete_participant',
+        $.post('/participant/delete',
             {
                 fname,
                 lname,

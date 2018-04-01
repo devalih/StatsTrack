@@ -26,8 +26,7 @@ function upd_table() {
         });
     }, 10);
 }
-
-$(function () {
+function addResultToRank(){
     $("#addResult_button").click(() => {
         const route = $('#select-walls :selected').text(),
             points = $('#select-points :selected').val(),
@@ -35,7 +34,7 @@ $(function () {
             [fname, lname] = participant.split(' ');
 
         // console.log('eeee,cos: ',route,points,participant,fname,lname);
-        $.post('/add_result',
+        $.post('/participant/add_result',
             {
                 fname,
                 lname,
@@ -50,10 +49,12 @@ $(function () {
                     alert('Result was not updated, try again');
             });
     });
+}
+function addNewParticipant(){
     $("#addParticipant_button").click(() => {
         const fname = document.getElementById("fname").value,
             lname = document.getElementById("lname").value;
-        $.post('/new_participant',
+        $.post('/participant/new',
             {
                 fname,
                 lname,
@@ -66,4 +67,11 @@ $(function () {
                     alert('This user has already been created');
             });
     })
+}
+
+$(function () {
+
+    addResultToRank();
+    addNewParticipant();
+
 });
