@@ -8,11 +8,6 @@ const routesDB = './resources/database/routes-db.json';
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('resources'));
 
-
-app.get('/', (req, res) => {
-  res.send('OK');
-});
-
 function getRoutesFromDB(url,req,res){
   fs.readFile(url, (err, data) => {
     if (!err) {
@@ -37,9 +32,9 @@ function getParticipantsFromDB(url,req,res){
   });
 }
 
-function writeToDB(url,jsonToWrite,req,res){
+function writeToDB(url,jsonToWrite,req,res,flag = true){
   fs.writeFile(url, jsonToWrite, (err, data) => {
-    if (!err) {
+    if (!err && flag) {
       res.json({ success: true });
     } else {
       console.log('Cant write file', err);
@@ -95,24 +90,49 @@ function addNewParticipant(url,participant,req,res){
       });
       if (isNew)
         participantList.push(participant);
-      participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
-      console.log(participantList);
+      participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
-      fs.writeFile(url, jsonToWrite, (err, data) => {
-        if (!err && isNew) {
-          res.json({ success: true });
-        } else {
-          console.log('Cant write file or isNew === false', err);
-          res.json({ success: false });
-        }
-      });
+      writeToDB(url,jsonToWrite,req,res,isNew);
     } else {
       console.log('Cant read file', err);
       res.json({ success: false });
     }
   });
 }
+
+function deleteParticipant (url,participant,req,res){
+  const { fname, lname }= participant;
+  let isRemoved = false;
+  fs.readFile(url, (err, data) => {
+    // Read file
+    if (!err) {
+      //If OK, than read data from JSON to array:
+      let participantList = JSON.parse(data);
+      // Update participant's result:
+      let i = 0;
+      participantList.forEach(elem => {
+        if (elem.fname == fname && elem.lname == lname) {
+          participantList.splice(i, 1);
+          isRemoved = true;
+        }
+        i++;
+      });
+      participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
+      //Change new update array back to JSON:
+      const jsonToWrite = JSON.stringify(participantList);
+      writeToDB(url,jsonToWrite,req,res,isRemoved);
+    } else {
+      console.log('Cant read file', err);
+      res.json({ success: false });
+    }
+  });
+
+}
+
+app.get('/', (req, res) => {
+  res.send('OK');
+});
 
 // GET method for ROUTES/WALLS to get them from database and send to front-end
 app.get('/routes', (req, res) => {
@@ -140,45 +160,8 @@ app.post('/new_participant', (req, res) => {
 });
 
 app.post('/delete_participant', (req, res) => {
-  const _fname = req.body.fname,
-    _lname = req.body.lname;
-  let isRemoved = false;
-  console.log(_fname, _lname);
-  fs.readFile('./resources/database/participants-db.json', (err, data) => {
-    // Read file
-    if (!err) {
-      //If OK, than read data from JSON to array:
-      let participantList = JSON.parse(data);
-      // Update participant's result:
-      let i = 0;
-      participantList.forEach(elem => {
-        if (elem.fname == _fname && elem.lname == _lname) {
-          participantList.splice(i, 1);
-          isRemoved = true;
-        }
-        i++;
-      });
-      participantList = (participantList.sort((a, b) => parseFloat(a.result) - parseFloat(b.result))).reverse();
-      console.log(participantList);
-      //Change new update array back to JSON:
-      const jsonToWrite = JSON.stringify(participantList);
-      fs.writeFile('./resources/database/participants-db.json', jsonToWrite, (err, data) => {
-        if (!err && isRemoved) {
-          res.json({ success: true });
-        } else {
-          console.log('Cant write file or isRemoved === false', err);
-          res.json({ success: false });
-        }
-      });
-    } else {
-      console.log('Cant read file', err);
-      res.json({ success: false });
-    }
-  });
+  deleteParticipant(participantsDB,req.body,req,res);
 });
-
-
-
 
 app.listen(3000, () => {
   console.log('Serwer uruchomiony na porcie http://localhost:3000');
