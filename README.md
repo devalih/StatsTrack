@@ -1,8 +1,8 @@
 # StatsTrack 
 sounds like star trek 
 <hr>
-HTML/CSS and JS(ES6), JQuery, AJAX on the fron-end.
-Node.js, Express.js and WebSockets(sockets.io) on the back-end (server side).   
+HTML/CSS and JS(ES6), JQuery, AJAX on the fron-end.<br>
+Node.js, Express.js and WebSockets(sockets.io) on the back-end (server side).<br>
 Simple JSON files are used to simulate DB role.
 <hr>
 
