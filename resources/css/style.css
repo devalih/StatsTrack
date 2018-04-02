@@ -34,7 +34,8 @@ html, body, section, .page {
 	background-color:#0d2829ea;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-left: 20px;
+  padding-left: 20px;
+  overflow: auto;
 }
 #p3 {
   left: 200%;
@@ -173,6 +174,10 @@ a {
     max-width: 300px;
   }
 
+  #addParticipant_button{
+    background-color: #39a139;
+  }
+
    /* FOR MOBILE PHONES TO SCALE */
    @media all and (max-width: 500px){ 
     .form_div{
@@ -183,6 +188,7 @@ a {
       color: #3d8f9dbf;
       background-color: #3d616a87;  
       visibility:visible; 
+      
     } 
     .img_wraper .img_text {
       position:relative;
@@ -201,15 +207,20 @@ a {
       margin: auto;
       cursor: pointer;      
       visibility:visible;
+      
     }
     .img_class{
       max-width: 30px;
       min-width: 20px;
     } 
+    /* #p2{
+      overflow: scroll;
+    } */
     #p1 {
       padding-right: -10%;
     }
     #p2, #p3, #p4 {
+      overflow-x: hidden;
       margin-left: 10%;
     }
     ul {
@@ -239,8 +250,17 @@ a {
       width:80%;
     }
   }
+
+  
+  /* add participant button */
+  #addResult_button{
+    width : 20%;
+    /* margin-left: 10px; */
+  }
  
-  @media all and (max-width: 1025px) and (min-width: 501px){ 
+  @media all and (max-width: 1024px) and (min-width: 501px){ 
+    
+    
     .img_wraper .img_text {
       position:relative;
       bottom:-10px;
@@ -265,6 +285,8 @@ a {
     #p1 {
       padding-right: -10%;
     }
+
+    
     
     #p2, #p3, #p4 {
       margin-left: 5%;

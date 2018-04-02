@@ -2,15 +2,10 @@
 .custom-select {
     position: relative;
     float: left;
+    margin-right: 5px;
     width:20%;
   }
 
-  /* add participant button */
-  #addResult_button{
-    width : 20%;
-    margin-left: 10px;
-  }
-  
   .custom-select select {
     transition: all 0.5s linear;
     display: none; /*hide original SELECT element:*/
@@ -66,7 +61,19 @@
     background-color: rgba(0, 0, 0, 0.1);
   }
 
+  #deleteParticipant_button{
+    background-color: #ce3636;
+    max-width: 20%;
+  }
+
   @media all and (max-width: 500px){
+
+    #deleteParticipant_button{
+      /* min-width: 68px; */
+      position: relative;
+      max-width: 75%;
+      padding: 2px 4px;
+    }
     .select-selected:after {
       position: relative;
     }
@@ -74,7 +81,7 @@
       position: relative;
       min-width: 68px;
       max-width: 80px;
-      margin-bottom: 5px;
+      /* margin-bottom: 5px; */
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -87,24 +94,31 @@
       margin-right: 20px;
     }
     
-    #addResult_button{
-      width : 30%;
-      font-size: 8px;
-      padding: 4px 14px;
-      margin-top: 10%;
-    /* margin: 8px 0; */
-    }
+    
     .select-items div,.select-selected {
       padding: 6px 5px;
     }
     .select-items {  
       position: relative;
-      
     }
     .custom-select{
       position : relative;
       margin-right : 13%;
       
       /* padding: 8px 6px; */
+    }
+  }
+  @media all and (max-width: 1023px) and (min-width: 501px){ 
+    .custom-select{
+      position : relative;
+      margin-right : 50px;
+    }
+    #deleteParticipant_button{
+      margin-left: 30px;
+    }
+  }
+  @media all and (max-width: 1035px) and (min-width: 1024px){
+    #deleteParticipant_button{
+      margin-left: 50px;
     }
   }

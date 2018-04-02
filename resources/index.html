@@ -2,12 +2,6 @@
 <html>
 
 <head>
-    <!-- 
-    organizatorzy za pomocą strony powinni
-    być w stanie oznaczyć kto jaką drogę ukończył. Lista dróg powinna być zamknięta (tj. drogi
-    powinny być do wyboru a nie do dowolnego wpisywania) i każdej drodze powinna odpowiadać
-    liczba punktów. Również lista zawodników powinna być zamknięta, pobierana z serwera 
--->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
@@ -16,12 +10,7 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <!-- <script type="text/javascript" src="../database/participants-db.json"></script> -->
-    <!-- for database auth !!!
-         <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" /> -->
 </head>
-
 <body>
     <div id="t1">
         <div id="t2">
@@ -51,7 +40,7 @@
                                 <li class="icon_last_results" id="third">
                                     <div class="img_wraper">
                                         <img class="img_class" src="/img/menu/trophy.svg">
-                                        <p class="img_text">Notifications</p>
+                                        <p class="img_text">Board</p>
                                     </div>
                                 </li>
                             </a>
@@ -89,18 +78,17 @@
                             </div>
 
                         </div>
-                        <div class="page" id="p2">
-                            <div class="pages_wrap">
+                        <div   class="page" id="p2">
+                            <div  class="pages_wrap">
                                 <p>
-                                    <h2>Your competition's results live</h2>
+                                    <h2>Your competition's results live ID1</h2>
                                 </p>
-                                <div style="overflow-x:auto;">
+                                <div >
                                     <table>
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Surname</th>
-                                                <!-- <th>Number</th> -->
                                                 <th>Finished Routes</th>
                                                 <th>Result</th>
                                             </tr>
@@ -109,9 +97,9 @@
                                             <!-- data coming from database -->
                                         </tbody>
                                     </table>
-                                    <div style="margin-left:25.5%;" class="form_div">
-                                        <input class="participant" id="fname" type="text" value="Your name">
-                                        <input class="participant" id="lname" type="text" value="Your surname">
+                                    <div style="margin-left:24%;" class="form_div">
+                                        <input class="participant" onfocus="this.value=''" id="fname" type="text" value="Your name">
+                                        <input class="participant" onfocus="this.value=''" id="lname" type="text" value="Your surname">
                                         <button id="addParticipant_button" type="submit">Add new</button>
                                     </div>
                                 </div>
@@ -127,12 +115,12 @@
                         <div class="page" id="p4">
                             <div class="pages_wrap">
                                 <p>
-                                    <h2>Page for organisators to make the template for competition</h2>
+                                    <h2>Page for organisators to add results or disqualify(delete) participant</h2>
                                 </p>
                                 <div class="select-wrap">
                                     <div class="custom-select">
                                         <select id="select-walls">
-                                            <option value="0">Select climbing wall:</option>
+                                            <option value="0">Climbing wall:</option>
 
                                         </select>
                                     </div>
@@ -154,29 +142,25 @@
                                     <div class="custom-select">
                                         <select id="select-participant">
                                             <option>Participants:</option>
-                                            <!-- db_update.js is filling this part -->
+                                            <!-- database is filling this part -->
                                         </select>
                                     </div>
                                     <button id="addResult_button" type="submit">Add result</button>
-                                    <!-- <input type="button" name="addParticipant" value="Submit"> -->
                                 </div>
                                 <br>
-                                <div class="form_div">
+                                <!-- <div class="form_div"> -->
                                     <div class="pages_wrap">
                                         <div class="select-wrap">
                                             <div class="custom-select">
                                                 <select id="select-participant-delete">
                                                     <option>Participants:</option>
-                                                    <!-- db_update.js is filling this part -->
+                                                    <!-- database is filling this part -->
                                                 </select>
                                             </div>
-                                            <button id="deleteParticipant_button" type="submit">DELETE</button>
                                         </div>
+                                        <button id="deleteParticipant_button" type="submit">DELETE</button>
                                     </div>
-                                    <!-- <input class="participant" id="fname_del" type="text" value="Name">
-                                    <input class="participant" id="lname_del" type="text" value="Surname"> -->
-                                    
-                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                     </section>
