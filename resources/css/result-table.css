@@ -65,8 +65,6 @@ tr:nth-child(even) {
  }
 
 @media all and (max-width: 1024px) and (min-width: 501px){
-  
-  
   table th, table td {
     padding: 15px 40px;
   }

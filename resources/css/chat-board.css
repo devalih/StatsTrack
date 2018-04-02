@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box; 
+}
+#chat_sec{
+       max-width: 500px;
+       margin: auto;
+       padding: 10px;
+}
+header{
+   text-align: center;
+}
+body{
+   overflow: auto;
+   min-width: 300px;
+}
+textarea{
+    background-color: rgba(104, 156, 156, 0.733);
+    color:black;
+    min-width: 500px;
+    min-height: 600px;  
+    resize : none;
+    float: left;
+    margin-bottom: 5px;
+}
+#input_msg{
+    max-width: 65%;
+    float: left;
+    margin-right: 20px;
+}
+#send_msg{
+    max-width: 30%;
+}
+
+/* @media only screen and (max-width:620px) {
+   /* For mobile phones: 
+    #chat_area, .main, .right {
+     width:100%;
+   } 
+ }  */

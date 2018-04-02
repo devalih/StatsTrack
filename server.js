@@ -2,13 +2,16 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
 const participantsDB = './resources/database/participants-db.json';
 const routesDB = './resources/database/routes-db.json';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('resources'));
 
-function getRoutesFromDB(url,req,res){
+function getRoutesFromDB(url, req, res) {
   fs.readFile(url, (err, data) => {
     if (!err) {
       const routeList = JSON.parse(data);
@@ -20,7 +23,7 @@ function getRoutesFromDB(url,req,res){
   });
 }
 
-function getParticipantsFromDB(url,req,res){
+function getParticipantsFromDB(url, req, res) {
   fs.readFile(url, (err, data) => {
     if (!err) {
       const participantList = JSON.parse(data);
@@ -32,7 +35,7 @@ function getParticipantsFromDB(url,req,res){
   });
 }
 
-function writeToDB(url,jsonToWrite,req,res,flag = true){
+function writeToDB(url, jsonToWrite, req, res, flag = true) {
   fs.writeFile(url, jsonToWrite, (err, data) => {
     if (!err && flag) {
       res.json({ success: true });
@@ -43,8 +46,8 @@ function writeToDB(url,jsonToWrite,req,res,flag = true){
   });
 }
 
-function addNewResult(url,participant,req,res){
-  const {fname, lname, route, points} = participant;
+function addNewResult(url, participant, req, res) {
+  const { fname, lname, route, points } = participant;
   console.log(fname, lname, route, points);
   fs.readFile(url, (err, data) => {
     // Read file
@@ -67,7 +70,7 @@ function addNewResult(url,participant,req,res){
       participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
-      writeToDB(url,jsonToWrite,req,res);
+      writeToDB(url, jsonToWrite, req, res);
     } else {
       console.log('Cant read file', err);
       res.json({ success: false });
@@ -75,7 +78,7 @@ function addNewResult(url,participant,req,res){
   });
 }
 
-function addNewParticipant(url,participant,req,res){
+function addNewParticipant(url, participant, req, res) {
   fs.readFile(url, (err, data) => {
     // Read file
     if (!err) {
@@ -93,7 +96,7 @@ function addNewParticipant(url,participant,req,res){
       participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
-      writeToDB(url,jsonToWrite,req,res,isNew);
+      writeToDB(url, jsonToWrite, req, res, isNew);
     } else {
       console.log('Cant read file', err);
       res.json({ success: false });
@@ -101,8 +104,8 @@ function addNewParticipant(url,participant,req,res){
   });
 }
 
-function deleteParticipant (url,participant,req,res){
-  const { fname, lname }= participant;
+function deleteParticipant(url, participant, req, res) {
+  const { fname, lname } = participant;
   let isRemoved = false;
   fs.readFile(url, (err, data) => {
     // Read file
@@ -121,7 +124,7 @@ function deleteParticipant (url,participant,req,res){
       participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
       //Change new update array back to JSON:
       const jsonToWrite = JSON.stringify(participantList);
-      writeToDB(url,jsonToWrite,req,res,isRemoved);
+      writeToDB(url, jsonToWrite, req, res, isRemoved);
     } else {
       console.log('Cant read file', err);
       res.json({ success: false });
@@ -129,6 +132,18 @@ function deleteParticipant (url,participant,req,res){
   });
 
 }
+
+io.on('connection', socket => {
+  console.log('User connected!');
+  socket.on('msg', data => {
+    console.log(data);
+    //Roześlij ją do wszystkich
+    io.emit('newMsg', {
+      nick: data.nick,
+      msg: data.msg,
+    });
+  });
+});
 
 app.get('/', (req, res) => {
   res.send('OK');
@@ -141,12 +156,12 @@ app.get('/routes', (req, res) => {
 
 // GET method for PARTICIPANTS to get them from database and send to front-end
 app.get('/participants', (req, res) => {
-  getParticipantsFromDB(participantsDB,req,res);
+  getParticipantsFromDB(participantsDB, req, res);
 });
 
 // add New Result
 app.post('/participant/add_result', (req, res) => {
-  addNewResult(participantsDB,req.body,req,res);
+  addNewResult(participantsDB, req.body, req, res);
 });
 
 app.post('/participant/new', (req, res) => {
@@ -156,13 +171,13 @@ app.post('/participant/new', (req, res) => {
     "finishedRoutes": "",
     "result": 0,
   }
-  addNewParticipant(participantsDB,participant,req,res);
+  addNewParticipant(participantsDB, participant, req, res);
 });
 
 app.post('/participant/delete', (req, res) => {
-  deleteParticipant(participantsDB,req.body,req,res);
+  deleteParticipant(participantsDB, req.body, req, res);
 });
 
-app.listen(3000, () => {
+http.listen(3000, () => {
   console.log('Serwer uruchomiony na porcie http://localhost:3000');
 });

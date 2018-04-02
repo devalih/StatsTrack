@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/chat-board.css">
     <link rel="stylesheet" type="text/css" href="/css/result-table.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 </head>
+
 <body>
     <div id="t1">
         <div id="t2">
@@ -39,7 +41,7 @@
                             <a href="#t3">
                                 <li class="icon_last_results" id="third">
                                     <div class="img_wraper">
-                                        <img class="img_class" src="/img/menu/trophy.svg">
+                                        <img class="img_class" src="/img/menu/chat.svg">
                                         <p class="img_text">Board</p>
                                     </div>
                                 </li>
@@ -78,12 +80,12 @@
                             </div>
 
                         </div>
-                        <div   class="page" id="p2">
-                            <div  class="pages_wrap">
+                        <div class="page" id="p2">
+                            <div class="pages_wrap">
                                 <p>
                                     <h2>Your competition's results live ID1</h2>
                                 </p>
-                                <div >
+                                <div>
                                     <table>
                                         <thead>
                                             <tr>
@@ -108,8 +110,16 @@
                         <div class="page" id="p3">
                             <div class="pages_wrap">
                                 <p>
-                                    <h2>Important information about competition</h2>
+                                    <h2>Competition discussion</h2>
                                 </p>
+
+                                <section id="chat_sec">
+                                    <textarea id="chat_area" disabled ></textarea>
+                                    <input id="input_msg" onfocus="this.value=''" type="text" value="Type here..">
+                                    <button id="send_msg" type="submit">Send message</button>
+                                </section>
+
+
                             </div>
                         </div>
                         <div class="page" id="p4">
@@ -149,17 +159,17 @@
                                 </div>
                                 <br>
                                 <!-- <div class="form_div"> -->
-                                    <div class="pages_wrap">
-                                        <div class="select-wrap">
-                                            <div class="custom-select">
-                                                <select id="select-participant-delete">
-                                                    <option>Participants:</option>
-                                                    <!-- database is filling this part -->
-                                                </select>
-                                            </div>
+                                <div class="pages_wrap">
+                                    <div class="select-wrap">
+                                        <div class="custom-select">
+                                            <select id="select-participant-delete">
+                                                <option>Participants:</option>
+                                                <!-- database is filling this part -->
+                                            </select>
                                         </div>
-                                        <button id="deleteParticipant_button" type="submit">DELETE</button>
                                     </div>
+                                    <button id="deleteParticipant_button" type="submit">DELETE</button>
+                                </div>
                                 <!-- </div> -->
                             </div>
                         </div>
@@ -168,6 +178,8 @@
             </div>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat_app.js"></script>
     <script src="/js/get-participants.js"></script>
     <script src="/js/get-routes.js"></script>
     <script src="/js/add-result.js"></script>

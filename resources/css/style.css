@@ -15,6 +15,9 @@ html, body, section, .page {
   background-size: cover;
   overflow: hidden;
 }
+/* ::-webkit-scrollbar { 
+  display: none; 
+} */
 .page {
   position: absolute;
   color: #fff;
@@ -27,7 +30,8 @@ html, body, section, .page {
   background-image: url(../img/background_alt.png);
   background-repeat: no-repeat;
 	background-size: cover;
-	padding-left: 5px;
+  padding-left: 5px;
+  overflow: auto;
 }
 #p2 {
   left: 100%;
@@ -42,14 +46,16 @@ html, body, section, .page {
   background-color:#26290dea;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-left: 20px;
+  padding-left: 20px;
+  overflow: auto;
 }
 #p4 {
   left: 300%;
   background-color: #603c50ea;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-left: 20px;
+  padding-left: 20px;
+  overflow: auto;
 }
 
 ul {
