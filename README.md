@@ -53,7 +53,7 @@ Simple JSON files are used to simulate DB role.
 </ol>
 <hr>
 <h2>Start</h2>
-To start my project, simply clone it somewhere, open StatsTrack folder and run "npm start" command.
+To start my project, simply clone it somewhere, open StatsTrack folder and run "npm start" command.<br>
 P.S. make sure you have all dependencies installed.
 <hr> 
 Final project for WebDev Academy at Motorola Solutions
