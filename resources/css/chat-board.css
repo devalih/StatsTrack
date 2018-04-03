@@ -6,13 +6,6 @@
        margin: auto;
        padding: 10px;
 }
-/* header{
-   text-align: center;
-} */
-/* body{
-   overflow: auto;
-   min-width: 300px;
-} */
 textarea{
     background-color: rgba(104, 156, 156, 0.733);
     color:black;
@@ -79,5 +72,3 @@ textarea{
         min-width: 30%;
     }
   }
-   
-/*   і */

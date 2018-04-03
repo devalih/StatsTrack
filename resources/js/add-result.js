@@ -1,5 +1,4 @@
 function upd_table() {
-    // e.preventDefault();
     $(".competitors-table").empty();
     setTimeout(() => {
         $.ajax({
@@ -33,7 +32,6 @@ function addResultToRank(){
             participant = $('#select-participant :selected').text(),
             [fname, lname] = participant.split(' ');
 
-        // console.log('eeee,cos: ',route,points,participant,fname,lname);
         $.post('/participant/add_result',
             {
                 fname,

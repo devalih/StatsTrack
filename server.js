@@ -157,7 +157,8 @@ app.get('/participants', (req, res) => {
   getParticipantsFromDB(participantsDB, req, res);
 });
 
-// add New Result
+// add New Result, get data from front end and send 
+// it to database
 app.post('/participant/add_result', (req, res) => {
   addNewResult(participantsDB, req.body, req, res);
 });

@@ -1,1 +1,9 @@
-[{"fname":"maks3","lname":"kol3","finishedRoutes":"IV, IX, IV, V, II, VI","result":40},{"fname":"maks","lname":"kol","finishedRoutes":"I, I, IV, III, II","result":20},{"fname":"kolkol1","lname":"kolkolkol1","finishedRoutes":"III","result":10},{"fname":"kol","lname":"kolkol","finishedRoutes":"III","result":10},{"fname":"teesse","lname":"seses","finishedRoutes":"","result":0},{"fname":"wewer","lname":"fsdfew","finishedRoutes":"","result":0},{"fname":"maks2","lname":"kol2","finishedRoutes":"","result":0},{"fname":"tesst","lname":"testts","finishedRoutes":"","result":0}]
+[
+    {"fname":"Maksym","lname":"Myskam","finishedRoutes":"IV, IX, II, I, VI","result":33},
+    {"fname":"Andriy","lname":"Yirdna","finishedRoutes":"I, IV, III, II","result":21},
+    {"fname":"Danylo","lname":"Olynad","finishedRoutes":"III","result":12},
+    {"fname":"Andriana","lname":"Manana","finishedRoutes":"III","result":9},
+    {"fname":"Oksana","lname":"Anasko","finishedRoutes":"V, II","result":13},
+    {"fname":"Yevhen","lname":"Nehvey","finishedRoutes":"IX, V","result":9},
+    {"fname":"Teris","lname":"Siret","finishedRoutes":"","result":0}
+]

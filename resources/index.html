@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/settings.css">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/findCompetition.css">
     <link rel="stylesheet" type="text/css" href="/css/chat-board.css">
     <link rel="stylesheet" type="text/css" href="/css/result-table.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
@@ -60,8 +60,10 @@
                         <div class="page" id="p1">
                             <div class="main">
                                 <br>
-                                <h2>Find competition using ID provided by organizator</h2>
-                                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Find Competition</button>
+                                <h2>Find competition using ID provided by organizator[future]</h2>
+                                <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Find Competition</button> -->
+                                <button style="width:auto;"><a class='link-to-rank'href="http://localhost:3000/#t2">Find competition</a></button>
+                                
                                 <div id="id01" class="modal">
                                     <form class="modal-content animate">
                                         <div class="imgcontainer">
@@ -110,7 +112,7 @@
                         <div class="page" id="p3">
                             <div class="pages_wrap">
                                 <p>
-                                    <h2>Competition discussion</h2>
+                                    <h2>Competition's discussion.</h2>
                                 </p>
 
                                 <section id="chat_sec">
@@ -125,7 +127,7 @@
                         <div class="page" id="p4">
                             <div class="pages_wrap">
                                 <p>
-                                    <h2>Page for organisators to add results or disqualify(delete) participant</h2>
+                                    <h2>Page for organisators to add results or disqualify(delete) participant.</h2>
                                 </p>
                                 <div class="select-wrap">
                                     <div class="custom-select">
@@ -158,7 +160,6 @@
                                     <button id="addResult_button" type="submit">Add result</button>
                                 </div>
                                 <br>
-                                <!-- <div class="form_div"> -->
                                 <div class="pages_wrap">
                                     <div class="select-wrap">
                                         <div class="custom-select">
@@ -168,9 +169,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <button id="deleteParticipant_button" type="submit">DELETE</button>
+                                    <button id="deleteParticipant_button" type="submit">Delete</button>
                                 </div>
-                                <!-- </div> -->
                             </div>
                         </div>
                     </section>
