@@ -8,7 +8,7 @@ Simple JSON files are used to simulate DB role.
 <h2>Basic logic explanation</h2>
 <ol>
     <li>
-        Login Page
+        Main Page
         <ol>
             <li>
                 [Future feature]Find your competition using CompetitionID
