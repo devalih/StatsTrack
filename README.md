@@ -1,7 +1,9 @@
 # StatsTrack 
 sounds like star trek 
-
-
+<hr>
+HTML/CSS and JS(ES6), JQuery, AJAX on the fron-end.<br>
+Node.js, Express.js and WebSockets(sockets.io) on the back-end (server side).<br>
+Simple JSON files are used to simulate DB role.
 <hr>
 
 <ol>
@@ -9,10 +11,7 @@ sounds like star trek
         Login Page
         <ol>
             <li>
-                Login as participant(Enter full name and competitionID)
-            </li>
-            <li>
-                Login/Register as organizator(You can edit competition, add new results, etc.)
+                [Future feature]Find your competition using CompetitionID
             </li>
         </ol>
     </li>
@@ -20,29 +19,30 @@ sounds like star trek
         Your competition's results live
         <ol>
             <li>
-                Show the result table(ranking) of the competition #{competitionID} according to the gained points
+                Show the result table(ranking) of the competition #${competitionID} with participants sorted <br> according to the gained points
             </li>
             <li>
-                There sould be show which climbing wall he
-                she completed
+                Button to add new participant to the competition(and ranking table)
+            </li>
+            <li>
+                Also there you can find which clibming routes(walls) have been finished
             </li>
         </ol>
     </li>
-    <li>[FUTURE] Add some live chat ? khmm
+    <li>Live board for competition announcements and inside comunication between everybody
     <li>
-        Panel for organizators to mage competition
+        Panel for organizators to manage competition
         <ol>
             <li>
                 Choose the number(type?) of the climbing wall from a drop-down menu,
-                each wall has it's points.(If some partipant made it, he gains poits according to
-                the wall's points.
+                each wall has it's points.(If some partipant has finished it, he gains poits according to
+                the wall's points.)
             </li>
             <li>
               button to add participant's result
                 <ol>
-                    <li>ID(his/her participant number)</li>
                     <li>Full name</li>
-                    <li>Result(time/points?)</li>
+                    <li>Result</li>
                 </ol>
             </li>
              <li>
