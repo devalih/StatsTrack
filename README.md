@@ -29,7 +29,7 @@ Simple JSON files are used to simulate DB role.
             </li>
         </ol>
     </li>
-    <li>Live board for competition announcements and inside comunication between everybody
+    <li>Live board (chat) for competition announcements and inside comunication between everybody
     <li>
         Panel for organizators to manage competition
         <ol>
