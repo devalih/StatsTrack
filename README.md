@@ -52,7 +52,7 @@ Simple JSON files are used to simulate DB role.
     </li>
 </ol>
 <hr>
-<h2>Start<h2>
+<h2>Start</h2>
 To start my project, simply clone it somewhere, open StatsTrack folder and run "npm start" command.
 P.S. make sure you have all dependencies installed.
 <hr> 
