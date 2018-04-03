@@ -1,9 +1,28 @@
 # StatsTrack 
 sounds like star trek 
 <hr>
-HTML/CSS and JS(ES6), JQuery, AJAX on the fron-end.<br>
-Node.js, Express.js and WebSockets(sockets.io) on the back-end (server side).<br>
-Simple JSON files are used to simulate DB role.
+<h2>Technologies</h2>
+<h3>For back-end I used:</h3>
+<ul>
+    <li>Express.js(4.16.3), which is a web application framework for Node.js(v8.9.4)</li>
+    <li>socket.io(2.1.0) which  is a javascript library for realtime web applications(uses the WebSocket protocol), in use by               board(chat) for live information exchange.</li>
+    <li>cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names. Im using it to identify       participants(ask for their name and save it in Cookie), so if they are using live board, their name(nickname) would be visible for          everyone else.</li>
+    <li>body-parser - parses incoming request bodies in a middleware before your handlers</li>
+</ul>
+<h3>For front-end I used:</h3>
+<ul>
+    <li>Javascript(ES6) as main language</li>
+    <li>JQuery in some cases to make code more readable and easier to follow</li>
+    <li>AJAX is used to update the ranking table(planing to change it and make future table updates with socket.io).</li>
+</ul>
+<br>
+<h3>Summary</h3>
+<ul>
+    <li>HTML/CSS and JS(ES6), JQuery, AJAX on the fron-end.</li>
+    <li>
+        Node.js, Express.js and sockets.io(WebSocket) on the back-end, along with additional middlewares: cookie-parser and body-parser.    </li>
+    <li>Simple JSON files are used to simulate DB role.</li>
+</ul>
 <hr>
 <h2>Basic logic explanation</h2>
 <ol>
