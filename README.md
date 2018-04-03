@@ -5,14 +5,14 @@ sounds like star trek
 <h3>For back-end I used:</h3>
 <ul>
     <li>Express.js(4.16.3), which is a web application framework for Node.js(v8.9.4)</li>
-    <li>socket.io(2.1.0) which  is a javascript library for realtime web applications(uses the WebSocket protocol), in use by               board(chat) for live information exchange.</li>
-    <li>cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names. Im using it to identify       participants(ask for their name and save it in Cookie), so if they are using live board, their name(nickname) would be visible for          everyone else.</li>
+    <li>socket.io(2.1.0) which  is a javascript library for real-time web applications(uses the WebSocket protocol), in use by               a board(chat) for live information exchange.</li>
+    <li>cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names. I'm using it to identify       participants(ask for their name and save it in Cookie), so if they are using a live board, their name(nickname) would be visible to everyone else.</li>
     <li>body-parser - parses incoming request bodies in a middleware before your handlers</li>
 </ul>
 <h3>For front-end I used:</h3>
 <ul>
-    <li>Javascript(ES6) as main language</li>
-    <li>JQuery in some cases to make code more readable and easier to follow</li>
+    <li>Javascript(ES6) as the main language</li>
+    <li>JQuery in some cases to make the code more readable and easier to follow</li>
     <li>AJAX is used to update the ranking table(planing to change it and make future table updates with socket.io).</li>
 </ul>
 <br>
@@ -41,7 +41,7 @@ sounds like star trek
                 Show the result table(ranking) of the competition #${competitionID} with participants sorted <br> according to the gained points
             </li>
             <li>
-                Button to add new participant to the competition(and ranking table)
+                Button to add a new participant to the competition(and ranking table)
             </li>
             <li>
                 Also there you can find which clibming routes(walls) have been finished
@@ -54,7 +54,7 @@ sounds like star trek
         <ol>
             <li>
                 Choose the number(type?) of the climbing wall from a drop-down menu,
-                each wall has it's points.(If some partipant has finished it, he gains poits according to
+                each wall has its points.(If some participant has finished it, he gains points according to
                 the wall's points.)
             </li>
             <li>
