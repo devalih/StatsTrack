@@ -194,7 +194,6 @@ a {
       color: #3d8f9dbf;
       background-color: #3d616a87;  
       visibility:visible; 
-      
     } 
     .img_wraper .img_text {
       position:relative;
@@ -283,17 +282,9 @@ a {
       cursor: pointer;      
       visibility:visible;
     }
-    /* .img_class{
-      margin-right: 20%;
-      margin-left: 20%;
-      max-width: 60px;
-    } */
     #p1 {
       padding-right: -10%;
     }
-
-    
-    
     #p2, #p3, #p4 {
       margin-left: 5%;
     }

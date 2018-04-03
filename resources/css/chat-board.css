@@ -6,18 +6,18 @@
        margin: auto;
        padding: 10px;
 }
-header{
+/* header{
    text-align: center;
-}
-body{
+} */
+/* body{
    overflow: auto;
    min-width: 300px;
-}
+} */
 textarea{
     background-color: rgba(104, 156, 156, 0.733);
     color:black;
     min-width: 500px;
-    min-height: 600px;  
+    min-height: 450px;  
     resize : none;
     float: left;
     margin-bottom: 5px;
@@ -31,9 +31,53 @@ textarea{
     max-width: 30%;
 }
 
-/* @media only screen and (max-width:620px) {
-   /* For mobile phones: 
-    #chat_area, .main, .right {
-     width:100%;
-   } 
- }  */
+@media (max-width: 360px){
+    textarea{
+        min-width: 215px;
+        min-height: 250px;
+        margin-bottom: 5px;  
+    }
+    #send_msg{
+        float: left;
+    }
+    
+    #input_msg{
+        margin-right: 5px;
+    }
+  }
+  
+  @media all and (max-width: 390px) and (min-width: 361px) {
+    textarea{
+        min-width: 260px;
+        min-height: 300px;
+        margin-bottom: 5px;  
+    }
+    
+    #input_msg{
+        min-width: 40%;
+        margin-right: 5px;
+    }
+    #send_msg{
+        float: left;
+        margin-left: 5px;
+    }
+  }
+  @media all and (max-width: 420px) and (min-width: 391px) {
+    textarea{
+        min-width: 290px;
+        min-height: 350px;
+        margin-bottom: 5px;  
+    }
+    
+    #input_msg{
+        min-width: 40%;
+        margin-right: 5px;
+    }
+    #send_msg{
+        float: left;
+        margin-left: 5px;
+        min-width: 30%;
+    }
+  }
+   
+/*   і */

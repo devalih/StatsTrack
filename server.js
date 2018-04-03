@@ -134,9 +134,7 @@ function deleteParticipant(url, participant, req, res) {
 }
 
 io.on('connection', socket => {
-  console.log('User connected!');
   socket.on('msg', data => {
-    console.log(data);
     //Roześlij ją do wszystkich
     io.emit('newMsg', {
       nick: data.nick,

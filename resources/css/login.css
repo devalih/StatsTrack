@@ -1,9 +1,5 @@
-  /* START TEST LOGIN FORM */
-  /* Full-width input fields */
   input[type=text] {
-    /* width: 60%; */
     padding: 12px 20px;
-    /* margin: 8px 30px; */
     display: inline-block;
     border: 1px solid rgba(204, 204, 204, 0.179);
     width:100%; 
@@ -17,14 +13,11 @@
   
   /* Set a style for all buttons */
   button {
-    /* min-width: 100px; */
     background-color: #3d8f9dbf;
     color: white;
     padding: 12px 20px;
-    /* margin: 8px 0; */
     border: none;
     cursor: pointer;
-    /* width: 100%; */
     width:100%; 
     margin: 0;
     -webkit-box-sizing: border-box;
@@ -125,7 +118,7 @@
 
     button {
       padding: 2px 5px;      
-      font-size: 8px;
+      font-size: 10px;
       max-width: 120px; 
     }
   }

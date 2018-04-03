@@ -89,12 +89,10 @@
 
     }
     .select-wrap{
-      font-size: 17%;
+      font-size: 8px;
       text-transform: uppercase;
       margin-right: 20px;
-     
     }
-    
     
     .select-items div,.select-selected {
       padding: 6px 5px;
