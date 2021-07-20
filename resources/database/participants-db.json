@@ -1,9 +1,1 @@
-[
-    {"fname":"Maksym","lname":"Myskam","finishedRoutes":"IV, IX, II, I, VI","result":33},
-    {"fname":"Andriy","lname":"Yirdna","finishedRoutes":"I, IV, III, II","result":21},
-    {"fname":"Danylo","lname":"Olynad","finishedRoutes":"III","result":12},
-    {"fname":"Andriana","lname":"Manana","finishedRoutes":"III","result":9},
-    {"fname":"Oksana","lname":"Anasko","finishedRoutes":"V, II","result":13},
-    {"fname":"Yevhen","lname":"Nehvey","finishedRoutes":"IX, V","result":9},
-    {"fname":"Teris","lname":"Siret","finishedRoutes":"","result":0}
-]
+[]

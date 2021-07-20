@@ -17,8 +17,8 @@ function getRoutesFromDB(url, req, res) {
       const routeList = JSON.parse(data);
       res.send(routeList);
     } else {
-      console.log('Błąd odczytu pliku', err);
-      res.send('Wystąpił błąd odczytu.');
+      console.log('File reading error', err);
+      res.send('A read error has occurred.');
     }
   });
 }
@@ -29,8 +29,8 @@ function getParticipantsFromDB(url, req, res) {
       const participantList = JSON.parse(data);
       res.send(participantList);
     } else {
-      console.log('Błąd odczytu pliku', err);
-      res.send('Wystąpił błąd odczytu.');
+      console.log('File reading error', err);
+      res.send('A read error has occurred.');
     }
   });
 }
@@ -178,5 +178,5 @@ app.post('/participant/delete', (req, res) => {
 });
 
 http.listen(3000, () => {
-  console.log('Serwer uruchomiony na porcie http://localhost:3000');
+  console.log('Server running on port http://localhost:3000');
 });

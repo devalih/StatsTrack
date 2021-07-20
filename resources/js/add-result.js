@@ -67,6 +67,25 @@ function addNewParticipant(){
     })
 }
 
+function modifyParticipant(){
+    $("#addParticipant_button").click(() => {
+        const fname = document.getElementById("fname").value,
+            lname = document.getElementById("lname").value;
+        $.post('/participant/new',
+            {
+                fname,
+                lname,
+            }, (data) => {
+                if (data.success) {
+                    alert('New user was added successfully!');
+                    upd_table();
+                }
+                else
+                    alert('This user has already been created');
+            });
+    })
+}
+
 $(function () {
 
     addResultToRank();
