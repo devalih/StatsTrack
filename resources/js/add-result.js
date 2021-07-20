@@ -68,20 +68,22 @@ function addNewParticipant(){
 }
 
 function modifyParticipant(){
-    $("#addParticipant_button").click(() => {
+    $("#modifyParticipant_button").click(() => {
         const fname = document.getElementById("fname").value,
-            lname = document.getElementById("lname").value;
-        $.post('/participant/new',
+            lname = document.getElementById("lname").value,
+            finishedRoutes = document.getElementById("finishedRoutes").value;
+        $.post('/participant/change',
             {
                 fname,
                 lname,
+                finishedRoutes
             }, (data) => {
                 if (data.success) {
-                    alert('New user was added successfully!');
+                    alert('User was modified successfully!');
                     upd_table();
                 }
                 else
-                    alert('This user has already been created');
+                    alert('Error modifying user' + data.message);
             });
     })
 }

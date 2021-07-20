@@ -59,11 +59,35 @@ function addNewResult(url, participant, req, res) {
         if (elem.fname == fname && elem.lname == lname) {
           // add a coma separator after every result update,
           // no comma needed for the first result
-          if (elem.finishedRoutes != "")
-            elem.finishedRoutes += ', ' + route;
-          else
-            elem.finishedRoutes += route;
+            elem.finishedRoutes.push(route);
+          elem.result = parseInt(elem.result) + parseInt(points);
+        }
+      });
+      participantList = (participantList.sort((a, b) => a.result - b.result)).reverse();
+      //Change new update array back to JSON:
+      const jsonToWrite = JSON.stringify(participantList);
+      writeToDB(url, jsonToWrite, req, res);
+    } else {
+      console.log('Cant read file', err);
+      res.json({ success: false });
+    }
+  });
+}
 
+function modifyParticipant(url, participant, req, res) {
+  const { fname, lname, finishedRoutes } = participant;
+  console.log(fname, lname, finishedRoutes);
+  fs.readFile(url, (err, data) => {
+    // Read file
+    if (!err) {
+      //If OK, than read data from JSON to array:
+      let participantList = JSON.parse(data);
+      // Update participant's result:
+      participantList.forEach(elem => {
+        if (elem.fname == fname && elem.lname == lname) {
+          // add a coma separator after every result update,
+          // no comma needed for the first result
+          elem.finishedRoutes = finishedRoutes;
           elem.result = parseInt(elem.result) + parseInt(points);
         }
       });
@@ -171,6 +195,15 @@ app.post('/participant/new', (req, res) => {
     "result": 0,
   }
   addNewParticipant(participantsDB, participant, req, res);
+});
+
+app.post('/participant/change', (req, res) => {
+  const participant = {
+    "fname": req.body.fname,
+    "lname": req.body.lname,
+    "finishedRoutes": req.body.finishedRoutes
+  }
+  modifyParticipant(participantsDB, participant, req, res);
 });
 
 app.post('/participant/delete', (req, res) => {
