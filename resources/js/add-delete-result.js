@@ -1,3 +1,4 @@
+
 function upd_table() {
     $(".competitors-table").empty();
     setTimeout(() => {
@@ -6,10 +7,11 @@ function upd_table() {
             success: function (result) {
                 console.log('AJAX result', result);
                 result.forEach((elem) => {
+
                     let firstname = JSON.stringify(elem.fname).replace(/"/g, ""),
                         lastname = JSON.stringify(elem.lname).replace(/"/g, ""),
                         routes = JSON.stringify(elem.finishedRoutes).replace(/"/g, ""),
-                        result = JSON.stringify(elem.result);
+                        result = JSON.stringify(sum(elem.result));
                     $(".competitors-table").append(
                         `<tr>
                             <td>${firstname}</td> 
@@ -45,6 +47,27 @@ function addResultToRank(){
                 }
                 else
                     alert('Result was not updated, try again');
+            });
+    });
+}
+function deleteResult_button(){
+    $("#deleteResult_button").click(() => {
+        const route = $('#select-walls :selected').text(),
+            participant = $('#select-participant :selected').text(),
+            [fname, lname] = participant.split(' ');
+
+        $.post('/participant/delete_result',
+            {
+                fname,
+                lname,
+                route
+            }, (data) => {
+                if (data.success) {
+                    alert('Result was deleted');
+                    upd_table();
+                }
+                else
+                    alert('No result found to delete');
             });
     });
 }
@@ -91,6 +114,7 @@ function modifyParticipant(){
 $(function () {
 
     addResultToRank();
+    deleteResult_button();
     addNewParticipant();
 
 });

@@ -132,23 +132,17 @@
                                 <div class="select-wrap">
                                     <div class="custom-select">
                                         <select id="select-walls">
-                                            <option value="0">Climbing wall:</option>
+                                            <option value="0">Climbing Route:</option>
 
                                         </select>
                                     </div>
                                     <div class="custom-select">
                                         <select id="select-points">
                                             <option value="0">Points:</option>
-                                            <option value="1">1 point</option>
-                                            <option value="2">2 points</option>
-                                            <option value="3">3 points</option>
-                                            <option value="4">4 points</option>
-                                            <option value="5">5 points</option>
-                                            <option value="6">6 points</option>
-                                            <option value="7">7 points</option>
-                                            <option value="8">8 points</option>
-                                            <option value="9">9 points</option>
-                                            <option value="10">10 points</option>
+                                            <option value="50">Top Rope Red Point (50)</option>
+                                            <option value="75">Top Rope Flash (75)</option>
+                                            <option value="75">Lead Red Point (75)</option>
+                                            <option value="100">Lead Flash (100)</option>
                                         </select>
                                     </div>
                                     <div class="custom-select">
@@ -158,6 +152,7 @@
                                         </select>
                                     </div>
                                     <button id="addResult_button" type="submit">Add result</button>
+                                    <button id="deleteResult_button" type="submit">Delete result</button>
                                 </div>
                                 <br>
                                 <div class="pages_wrap">
@@ -178,11 +173,12 @@
             </div>
         </div>
     </div>
+    <script src="/js/helper.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat_app.js"></script>
     <script src="/js/get-participants.js"></script>
     <script src="/js/get-routes.js"></script>
-    <script src="/js/add-result.js"></script>
+    <script src="/js/add-delete-result.js"></script>
     <script src="/js/result-table-style.js"></script>
     <script src="/js/ranking-table-update.js"></script>
     <script src="/js/delete-user.js"></script>

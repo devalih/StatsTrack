@@ -8,7 +8,7 @@ $(function () {
             let firstname = JSON.stringify(elem.fname).replace(/"/g, "");
             let lastname = JSON.stringify(elem.lname).replace(/"/g, "");
             let routes = JSON.stringify(elem.finishedRoutes).replace(/"/g, "");
-            let result = JSON.stringify(elem.result);
+            let result = JSON.stringify(sum(elem.result));
             $(".competitors-table").append(
                 `<tr>
                     <td>${firstname}</td> 
